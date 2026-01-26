@@ -89,3 +89,7 @@ class UHIF:
             return W_new
         except ValueError:
             return 0.0
+
+def check_density():
+    """Checks the current Reality Density (Rho)."""
+    return UHIF._rho

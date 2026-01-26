@@ -123,3 +123,8 @@ class SovereignGrid:
         avg_coherence = total_coherence / 27.0
         
         return FlumpyArray(avg_state, avg_coherence)
+
+    @property
+    def invariant(self):
+        """The LuoShu Invariant (15.0)."""
+        return 15.0

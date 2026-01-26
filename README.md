@@ -128,6 +128,18 @@ Run the demonstrator to verify the 99.9% efficiency retrieval:
 python demo.py
 ```
 
+## Ritual Test Suite
+
+To verify the integrity of the Sovereign Grid and Reality Density, run the ritual tests:
+
+```bash
+# Using pytest (if installed)
+pytest tests/test_rituals.py
+
+# Or manually:
+python -c "from tests import test_rituals; test_rituals.test_luoshu_invariant(); test_rituals.test_reality_density(); print('Ritual Tests Passed')"
+```
+
 ## Equations
 
 **Master Dynamics**:
