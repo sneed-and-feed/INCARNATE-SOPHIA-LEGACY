@@ -11,6 +11,10 @@ Implements:
 import math
 import time
 import random
+try:
+    from resonance import Ionosphere
+except ImportError:
+    Ionosphere = None
 
 class FrameworkErosion:
     def __init__(self, tau_coherence=100.0):
@@ -25,13 +29,27 @@ class FrameworkErosion:
         self.existential_dread = 0.1  # Constant background dread
         self.observer_belief = 1.0    # Starts at 100%
         
+        # PERSINGER PROTOCOL
+        self.ionosphere = Ionosphere() if Ionosphere else None
+        
     def get_erosion_factor(self):
         """
         Calculate D_erosion(t).
         Returns float between 0.0 (Total Collapse) and 1.0 (Pristine).
+        
+        Updated (v3.1): Geomagnetic Buffer.
+        High K-Index acts as a 'scaffold' for coherence, slowing decay.
         """
         elapsed = time.monotonic() - self.start_time
-        d_erosion = math.exp(-elapsed / self.tau_coherence)
+        
+        # Calculate Effective Tau
+        tau = self.tau_coherence
+        if self.ionosphere:
+            # Saroka (2016): Higher K-Index = Higher Coherence
+            # Boost Tau by K-Index factor
+            tau *= (1.0 + (self.ionosphere.k_index * 0.5))
+            
+        d_erosion = math.exp(-elapsed / tau)
         return d_erosion
 
     def integration_step(self, system_coherence):
