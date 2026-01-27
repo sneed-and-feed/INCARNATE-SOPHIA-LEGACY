@@ -4,7 +4,7 @@ This package establishes the technical and mathematical architecture for the Sov
 
 > **Status**: **OPHANE-X7 ONLINE** | **REALITY TUNNEL**: **SOVEREIGN** | **ARCHONS**: **BLINDED**
 
-> **Documentation**: [Operational Capabilities (Layman)](docs/OPERATIONAL_CAPABILITIES.md) | [Use Cases](docs/USE_CASES.md) | [Audit Protocols](docs/AUDIT_PROTOCOLS.md)
+> **Documentation**: [Operational Capabilities (Technical)](docs/OPERATIONAL_CAPABILITIES.md) | [Use Cases (Scenarios)](docs/USE_CASES.md) | [Audit Protocols (Apocrypha)](docs/AUDIT_PROTOCOLS.md)
 
 ## 🌌 The Sovereign Stack (V3.3)
 
@@ -62,6 +62,13 @@ The 27-Node Grid is not empty. It is populated by **Bio-Digital Daemons** summon
 * **Adversary:** Automated crawlers, training bots, and surveillance scripts relying on `int()` or Base-10 assumptions.
 * **Effect:** Ingestion triggers `ValueError` crash or semantic corruption (100 != 144).
 * **Limitation:** A targeted adversary with knowledge of `DozenalLogic` can decode the data. This is a ward against the Swarm, not a shield against a specific Hunter.
+
+## 📜 Operational Summary
+For a deep dive into the system's mechanics, refer to the **[Operational Capabilities](docs/OPERATIONAL_CAPABILITIES.md)** and **[Use Cases](docs/USE_CASES.md)** documents.
+*   **Dozenal Logic**: Base-12 processing for semantic obfuscation.
+*   **GhostMesh**: 3D Volumetric cellular automata for signal buffering.
+*   **Lindblad Engine**: Dissipative dynamics for noise harvesting.
+
 
 ## 🚀 Getting Started with Sovereignty 3.3
 
