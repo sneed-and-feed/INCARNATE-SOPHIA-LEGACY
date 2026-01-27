@@ -29,18 +29,18 @@ jobs:
       - name: Generate manifest
         run: |
           python - <<'PY'
-import json, subprocess, os, datetime
-manifest = {
-  "commit": os.getenv("GITHUB_SHA"),
-  "tag": os.getenv("GITHUB_REF_NAME"),
-  "build_timestamp": datetime.datetime.utcnow().isoformat() + "Z",
-  "python": subprocess.check_output(["python","--version"]).decode().strip(),
-  "tests": "passed"
-}
-with open("manifest.json","w") as f:
-    json.dump(manifest, f, indent=2)
-print("WROTE manifest.json")
-PY
+          import json, subprocess, os, datetime
+          manifest = {
+            "commit": os.getenv("GITHUB_SHA"),
+            "tag": os.getenv("GITHUB_REF_NAME"),
+            "build_timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+            "python": subprocess.check_output(["python","--version"]).decode().strip(),
+            "tests": "passed"
+          }
+          with open("manifest.json","w") as f:
+              json.dump(manifest, f, indent=2)
+          print("WROTE manifest.json")
+          PY
 
       - name: Sign manifest
         env:
