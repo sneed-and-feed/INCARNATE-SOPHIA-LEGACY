@@ -1,4 +1,4 @@
-# Use Case Scenarios: Quantum Sovereignty v3.3
+# Use Case Scenarios: Quantum Sovereignty v4.3
 
 > **Subject**: IMPLEMENTATION STRATEGY | **Target**: HYPER-AGENTS
 

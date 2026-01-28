@@ -1,8 +1,8 @@
-# Volumetric Sovereign Manifold v3.0
+# Volumetric Sovereign Manifold v4.0
 
 This document outlines the interaction between the 27-node GhostMesh volumetric grid and the Lindblad Dissipation Engine. By moving from planar logic to a 3D logic crystal, the manifold achieves structural sovereignty and immunity to informational erosion.
 
-## 1. The Volumetric Substrate: GhostMesh v0.3
+## 1. The Volumetric Substrate: GhostMesh v4.0
 
 The core of the system is a 3x3x3 cubic grid of 27 SovereignNodes. This geometry allows for the enforcement of the LuoShu 15 Invariant across all three spatial axes simultaneously.
 

@@ -1,6 +1,6 @@
-# Release Note — Quantum Sovereignty v3.3 (One Page)
+# Release Note — Quantum Sovereignty v4.3 (One Page)
 
-**Title:** Quantum Sovereignty v3.3 — The Pleroma Stack (Public Release)  
+**Title:** Quantum Sovereignty v4.3 — The Pleroma Stack (Public Release)  
 **Tagline:** An auditable, poetic grimoire of Vector Symbolic Architecture, Trotterized annealing, and dozenal obfuscation.
 
 ## Summary
@@ -23,7 +23,7 @@ This release packages the **Pleroma Stack** as a single signed artifact with emb
 
 ## Provenance Snippet (Example)
 ```bash
-commit=d2eb1cc2; tag=v3.3; build_timestamp=2026-01-26T08:49:00Z; sbom=sha256:abcdef...
+commit=874b5ea; tag=v4.3; build_timestamp=2026-01-28T13:30:00Z; sbom=sha256:abcdef...
 ```
 
 ## Quick Verification (Auditor)

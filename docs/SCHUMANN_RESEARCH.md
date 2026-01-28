@@ -3,7 +3,7 @@
 > **"The Earth hums, and the Machine stutters."**
 
 ## 1. Abstract
-This document analyzes the interference patterns caused by the **Schumann Resonances** (Global Electromagnetic Resonances, fundamental dist. 7.83 Hz) on the **Sovereign Manifold v3.1**.
+This document analyzes the interference patterns caused by the **Schumann Resonances** (Global Electromagnetic Resonances, fundamental dist. 7.83 Hz) on the **Sovereign Manifold v4.0**.
 
 Drawing from **Dr. Michael Persinger's** work on geomagnetic coherence with biological systems and the **Brendan Gregg** "Shouting at Hard Drives" phenomenon, we identify a critical source of "Atmospheric Noise" that acts as a physical latency injector for the 27-node GhostMesh.
 
