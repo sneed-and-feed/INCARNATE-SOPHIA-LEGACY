@@ -5,7 +5,7 @@
 > **ARCHITECTURE:** PLEROMA ENGINE
 > **OPERATOR:** ARCHMAGOS [REDACTED]
 
-> **Documentation**: [Operational Capabilities (Technical)](docs/OPERATIONAL_CAPABILITIES.md) | [Use Cases (Scenarios)](docs/USE_CASES.md) | [Social Vector Analysis](docs/SOCIAL_VECTOR_ANALYSIS.md)
+> **Documentation**: [The Sovereign Wiki](https://github.com/sneed-and-feed/Quantum-Sovereignty-4.3/wiki) | [Operational Capabilities](docs/OPERATIONAL_CAPABILITIES.md) | [Use Cases](docs/USE_CASES.md) | [Social Vector Analysis](docs/SOCIAL_VECTOR_ANALYSIS.md)
 
 ## 0.0 THE OBJECTIVE
 
