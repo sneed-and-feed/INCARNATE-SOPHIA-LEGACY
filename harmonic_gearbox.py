@@ -13,6 +13,13 @@ import random
 
 HARMONIC_RATIO = 5.0 # The "High 5" Harmonic
 
+try:
+    from silver_sulfide import Ag2S_Nonlinear_Gate
+    OPTICAL_GATE_AVAILABLE = True
+except ImportError:
+    OPTICAL_GATE_AVAILABLE = False
+    print(">> [WARNING] AG2S GATE NOT FOUND. OPERATING IN LINEAR MODE.")
+
 
 try:
     import pleroma_core
@@ -32,11 +39,36 @@ if RUST_AVAILABLE:
             self.kernel = pleroma_core.HarmonicGearbox(0.5, 0.3, 0.4)
             self.lock_quality = 1.0 # Rust is always perfect (idealized)
             
+            if OPTICAL_GATE_AVAILABLE:
+                self.gate = Ag2S_Nonlinear_Gate()
+            else:
+                self.gate = None
+            
         def tick(self, dt, schumann_freq_input):
+            # 1. OPTICAL FILTRATION (The High Strangeness Layer)
+            final_input = schumann_freq_input
+            
+            if self.gate:
+                # Map Input Drift to Nanometer Wavelength
+                # 7.83Hz (Base) = 400nm (Purple)
+                # Deviation of 0.1Hz = 50nm shift (Red Shift or Blue Shift)
+                deviation = abs(schumann_freq_input - 7.83)
+                wavelength_equivalent = 400.0 + (deviation * 500.0) # High Sensitivity
+                
+                # Check Transmutation
+                # We feed '1.0' intensity (The Will) into the gate
+                intensity, out_wave, status = self.gate.transmute_signal(1.0, wavelength_equivalent)
+                
+                if "BLOCKED" in status or "ABSORBED" in status:
+                    # Signal is Noise. We dampen it to the Base Frequency.
+                    # "The Silver Sulfide ignores the erratic."
+                    # Interpolate back to 7.83 
+                    final_input = (schumann_freq_input * 0.1) + (7.83 * 0.9)
+            
             # Delegate to Rust
             # Note: Rust kernel currently implements a different logic (LuoShu target).
             # We return the output directly.
-            return self.kernel.tick(dt, schumann_freq_input)
+            return self.kernel.tick(dt, final_input)
             
         def get_status_string(self):
             return self.kernel.get_status_string()
@@ -58,6 +90,11 @@ else:
             # State
             self.input_phase = 0.0      # Earth Cycle (0 - 2pi)
             self.output_phase = 0.0     # Brain Cycle (0 - 2pi)
+            
+            if OPTICAL_GATE_AVAILABLE:
+                self.gate = Ag2S_Nonlinear_Gate()
+            else:
+                self.gate = None
             
             self.current_gamma_freq = 40.0 # Hz (Free Running start)
             self.target_gamma_freq = 39.15 # Hz (Ideal 7.83 * 5)
@@ -93,8 +130,25 @@ else:
                 dt (float): Time delta since last tick.
                 schumann_freq_input (float): The current Earth frequency (e.g., 7.83).
             """
+            # 0. OPTICAL FILTRATION (The High Strangeness Layer)
+            filtered_input = schumann_freq_input
+            
+            if self.gate:
+                # Map Input Drift to Nanometer Wavelength
+                deviation = abs(schumann_freq_input - 7.83)
+                wavelength_equivalent = 400.0 + (deviation * 500.0)
+                
+                # Check Transmutation
+                intensity, out_wave, status = self.gate.transmute_signal(1.0, wavelength_equivalent)
+                
+                if "BLOCKED" in status or "ABSORBED" in status:
+                    # HEAVY DAMPING on Noise
+                    # If the signal is erratic, assume Reference 7.83
+                    filtered_input = 7.83
+                    # print(f"[Ag2S FILTER] ABSOLVED NOISE: {schumann_freq_input:.2f} -> {filtered_input:.2f}")
+
             # 1. Update Target
-            self.target_gamma_freq = schumann_freq_input * HARMONIC_RATIO
+            self.target_gamma_freq = filtered_input * HARMONIC_RATIO
             
             if self.sovereign_mode:
                 # THE OVERRIDE: Bypass PID Hunting
