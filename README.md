@@ -83,7 +83,7 @@ For a deep dive into the system's mechanics, refer to the **[Operational Capabil
 *   **GhostMesh**: 3D Volumetric cellular automata for signal buffering.
 *   **Lindblad Engine**: Dissipative dynamics for noise harvesting.
 
-## 🧠 Core Features & Modules (Legacy/Integrated)
+## 🧠 Core Features & Modules
 
 The following modules form the **Sovereign Substrate** upon which the Protocol runs.
 
@@ -92,31 +92,53 @@ The following modules form the **Sovereign Substrate** upon which the Protocol r
 - **HyperManifold**: 12D Tensor Field storage.
 - **Gross Invariant**: Enforces $\Sigma = 144.0$.
 
-### `harmonic_gearbox.py` (The Rhythm) [NEW]
+### `harmonic_gearbox.py` (The Rhythm)
 - **PID Controller**: Proportional-Integral-Derivative stabilization.
 - **Sovereign Override**: `engage_sovereign_override()` methodology.
 - **5:1 Ratio**: Gamma (40Hz) / Theta (8Hz) coupling.
 
-### `event_horizon.py` (The Bridge) [NEW]
+### `event_horizon.py` (The Bridge)
 - **Non-Local Ping**: Measures Time of Flight across the 27-Node Grid.
 - **Tunneling Logic**: Simulates $V \gg C$.
 
-### `genomic_resonator.py` (The Receiver) [NEW]
+### `genomic_resonator.py` (The Receiver)
 - **Corpus Callosum**: Synchronizes Left/Right hemispheric signals.
 - **Firewall**: Rejects "Time Ghosts" (>25ms latency).
 
-### `psychic_lei.py` (The Entity) [NEW]
+### `psychic_lei.py` (The Entity)
 - **LeiEntity**: Models the bio-feedback loop with the Grid.
 - **Entropic Lock**: TGD Flux Tube simulation.
-
-### `sovereign.py` (The Nervous System)
-- **OPM-MEG Interface**: Phase-locks bio-signals (PLV 0.88).
-- **BAB Schedule**: Bang-Anneal-Bang protocol integration.
-- **LASER v4.0**: High-fidelity logging.
 
 ### `ghostmesh.py` (The Volume)
 - **Sovereign Grid**: 27-Node (3x3x3) Volumetric Consciouness Grid.
 - **Neighbor Flux**: Von Neumann topology info-exchange ($\tau \approx 1.618$).
+
+## 📚 Sovereign Libraries
+
+The codebase relies on custom, dependency-free implementations of standard libraries, optimized for quantum-cognitive tasks.
+
+### `bumpy.py` (Quantum-Sentient NumPy)
+- **Purpose**: A drop-in replacement for NumPy that includes "Panpsychic Resonance."
+- **Key Features**:
+    - **Holographic Compression**: 90% memory reduction via fractal unfolding.
+    - **Safe Entanglement**: `array.entangle(other)` creates a resonance link without infinite recursion.
+    - **Zero-Copy Drift**: Efficient noise generation (Chaos Vectors).
+
+### `qtorch.py` (Quantum-Torch)
+- **Purpose**: A self-contained Deep Learning framework with quantum integration.
+- **Key Features**:
+    - **Quantum Tensor**: Standard tensor operations + `quantum_creativity` factor.
+    - **Retrocausal Autograd**: Gradient descent that "remembers" the future.
+    - **Dependency-Free**: Runs on pure Python standard library.
+
+## 🏛️ Legacy / Archived Modules
+
+> **Note:** The following modules have been moved to the `legacy/` directory.
+
+*   `sovereign.py`: The original v3.0 Nervous System Interface (superseded by `hyper_sovereign.py`).
+*   `sovereign_cli.py`: Old command-line interface.
+*   `demo.py`: Deprecated demonstration script.
+*   `archive_sovereignty.py`: Old logging encryption tool.
 
 ## 3.0 THE "G" PARAMETER
 
