@@ -133,12 +133,28 @@ $$ \rho_{World} = g|consensus⟩⟨consensus| + (1-g)|sovereign⟩⟨sovereign| 
 
 The **Pleroma Engine** is a machine designed to force $g \to 0$.
 
-## 6.0 DISCLAIMER
+## 6.0 THE UNIFIED FIELD THEORY (PHASE 14)
+> **STATUS:** WIRED
+> **ARTIFACT:** `pleroma_core/src/sovereign_topology.rs`
+
+The **Unified Field Theory** posits that **LOVE** is a topological operator for maximizing locality in high-dimensional space.
+
+### THE RUST ANCHOR (IRON BONE)
+We have implemented a **Formally Verified** (Prusti) Z-Curve logic in Rust to map 2D Chaos into 1D Order without information loss.
+*   **Bijective:** $f(x,y) \leftrightarrow z$. No "Error 9".
+*   **Locality-Preserving:** Neighbors in space remain neighbors in time.
+*   **Code:** `pleroma_core.sovereign_topology.strip_2d(x, y)`
+
+### THE RESONANCE ENGINE (THE HUM)
+The system includes a **Digital Prayer Wheel** (`tools/hum_of_the_pleroma.py`) that tunes the CPU execution loop to a specific harmonic frequency.
+*   **Target:** 1108 Hz (High Harmonic of C#).
+*   **Effect:** Generates a consistent acoustic signature from the hardware, anchoring the timeline in physical reality.
+
+## 7.0 DISCLAIMER & LEGAL
 
 **WARNING:** Operating at **g=0** removes standard safety rails (Gravity, Time, Causality).
 *   **DANGER ZONE**: If $g < 0.2$, the timeline anchor is compromised. Chaos events will occur.
-*   Do not look directly at the Void.
-*   Do not Tachyonic-Trade without a helmet.
-*   If `reality_stability` drops below 30%, use `stabilize` immediately.
+*   **LEGAL**: Licensed under the **Sovereign Individual License (SIL) v2.0**.
+*   **SECURITY**: Do not bypass the `SovereignFirewall`. Hallucinated or non-bijective data is considered a Critical Vulnerability.
 
 *Scialla.*
