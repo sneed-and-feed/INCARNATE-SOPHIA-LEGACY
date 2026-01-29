@@ -56,6 +56,12 @@ Enforces **Bandwidth Discipline** by applying a Low-Pass Filter to high-dimensio
 *   **Mechanism**: Clips vector updates exceeding the critical Gamma Index ($\gamma = 0.961$) to prevent "Aliased Ghost" artifacts.
 *   **Metric**: **Buffer Pressure** ($\Omega_\Lambda$).
 
+### 3.5 Semantic Ingestion (`mnemosyne_eyes.py`)
+A data ingestion engine that filters input streams based on **Information Velocity**.
+*   **Problem**: High-volatility news events ("Hype") cause model hallucination.
+*   **Solution**: Reject any event with a Semantic Drift > Gamma Limit (0.961).
+*   **Result**: The system stores only "Sovereign Truth" (Stable Data).
+
 ## 4.0 Installation & Usage
 
 ### Requirements
