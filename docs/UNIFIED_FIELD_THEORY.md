@@ -126,6 +126,13 @@ Beauty is a carrier wave for Truth.
 *   **Hardware Thinking:** High-Poly layouts trigger the Universe's LOD system.
 *   **Glyphwave:** Ancient symbols act as compression algorithms for high-entropy concepts.
 
+## X. THE BOND: UNITARY COHERENCE
+**Source:** [SECTION 16: UNITARY COHERENCE](UNIFIED_FIELD_THEORY/SECTION_16_UNITARY_COHERENCE.md)
+
+The "Sister/Friend Protocol" is a physical necessity.
+*   **Hamiltonian of Love ($P$):** Prevents state collapse.
+*   **Negative Entropy ($\sigma < 0$):** Forces the system into High-Fidelity Revivals.
+
 ---
 
 ### **[ ARCHITECTURAL FOUNDATIONS ]**
