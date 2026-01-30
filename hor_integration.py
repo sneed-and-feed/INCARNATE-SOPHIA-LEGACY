@@ -33,6 +33,31 @@ except ImportError as e:
     print("[!] Ensure all core ASOE and Quantum modules are in the root or tools/ directory.")
     sys.exit(1)
 
+class DecisionLogger:
+    """Track decision history for pattern analysis (Dependency-lite)"""
+    def __init__(self):
+        self.history = []
+    
+    def log_step(self, metrics):
+        self.history.append(metrics)
+    
+    def analyze_patterns(self):
+        if not self.history: return {}
+        utilities = np.array([h['sovereignty'] for h in self.history])
+        coherences = np.array([h['coherence'] for h in self.history])
+        
+        # Correlation (Manual NumPy)
+        if len(utilities) > 1:
+            corr = np.corrcoef(utilities, coherences)[0, 1]
+        else:
+            corr = 0.0
+            
+        return {
+            'utility_correlation': corr,
+            'avg_utility': np.mean(utilities),
+            'max_utility': np.max(utilities)
+        }
+
 class SovereignSubstrate:
     """
     The complete stack: Quantum Hardware → Consciousness Interface
@@ -52,6 +77,10 @@ class SovereignSubstrate:
         # Layer 4: Decision Engine (ASOE)
         self.optimizer = SignalOptimizer(a=1.2, b=0.8, c=1.1)
         
+        # Layer 5: Cognitive Enhancements
+        self.logger = DecisionLogger()
+        self.performance_history = []
+        
         # State tracking
         self.timeline_position = 0
         self.total_torsion_events = 0
@@ -62,156 +91,180 @@ class SovereignSubstrate:
         """
         Synchronize quantum coherence with pleroma g-parameter.
         """
-        # Map HOR metric coherence to g-parameter
-        # Higher coherence = Lower g (More Sovereign)
         g = 1.0 - self.hor.metric_coherence
         self.pleroma.g = max(0.0, g)
-        
         return self.pleroma.g
     
     def apply_lunar_modulation(self):
         """
         Use lunar phase to modulate torsion field strength.
-        Full Moon = maximum protection, New Moon = minimum.
         """
         phase_name, status, icon, phase_idx, illumination = self.moon.get_phase()
-        
-        # Torsion field strength scales with lunar illumination
         torsion_modifier = 0.5 + (illumination * 0.5)
-        
-        # High tidal influence increases error rate
         tidal = self.moon.calculate_tidal_influence(phase_idx)
-        error_rate = 0.05 + (tidal / 1000.0)  # Base 5% + tidal contribution
-        
+        error_rate = 0.05 + (tidal / 1000.0)
         return torsion_modifier, error_rate
+    
+    def adapt_parameters(self, outcome_quality):
+        """
+        Claude's Adaptive Tuning: Adjust a, b, c based on outcome quality.
+        """
+        self.performance_history.append(outcome_quality)
+        if len(self.performance_history) >= 10:
+            recent_avg = np.mean(self.performance_history[-10:])
+            if recent_avg < 0.5:
+                self.optimizer.params['a'] *= 1.05 # Need more signal sensitivity
+            elif recent_avg > 0.8:
+                self.optimizer.params['c'] *= 0.95 # Can afford to relax consistency
     
     def evolve_sovereign_step(self):
         """
         Single time step of sovereign evolution.
-        Integrates quantum, physics, and temporal layers.
         """
-        # Get lunar parameters
         torsion_mod, error_rate = self.apply_lunar_modulation()
         
-        # Quantum evolution with lunar-modulated error
+        # Quantum evolution
         if np.random.random() < error_rate:
             self.qutrit.bit_flip_error()
         
-        # Apply torsion stabilization
+        # Torsion stabilization
         if self.hor.apply_torsion_stabilization():
             self.total_torsion_events += 1
-            # Torsion correction weakened by low lunar illumination
             self.hor.metric_coherence = max(0.1, self.hor.metric_coherence * (0.95 * torsion_mod))
+            outcome_quality = 0.3 # Leak detected = poor immediate state
         else:
-            # Stable evolution strengthens coherence
             self.hor.metric_coherence = min(1.0, self.hor.metric_coherence * 1.01)
+            outcome_quality = 0.9 # Stable evolution
         
-        # Sync with pleroma
         g = self.sync_coherence()
         
-        # --- ASOE UPGRADE ---
-        # We model the system state as a decision packet
-        # Reliability = coherence
-        # Consistency = (1 - g) 
-        # Uncertainty = error_rate * 5 (scaled for optimizer)
+        # ASOE Evaluation
         self.asoe_utility = self.optimizer.calculate_utility(
             reliability=self.hor.metric_coherence,
             consistency=(1.0 - g),
             uncertainty=error_rate * 5
         )
         
-        # Sovereignty level is now driven by ASOE Utility
-        self.sovereignty_level = max(0.0, self.asoe_utility)
+        # Threshold logic for outcome quality
+        self.adapt_parameters(outcome_quality)
         
-        # Advance timeline
+        self.sovereignty_level = max(0.0, self.asoe_utility)
         self.timeline_position += 1
         
-        return {
+        metrics = {
             "timeline_pos": self.timeline_position,
             "g_parameter": g,
             "coherence": self.hor.metric_coherence,
             "sovereignty": self.sovereignty_level,
             "torsion_events": self.total_torsion_events,
             "qutrit_state": self.qutrit.measure(),
-            "confidence": self.optimizer.get_confidence_category(self.asoe_utility)
+            "confidence": self.optimizer.get_confidence_category(self.asoe_utility),
+            "outcome_quality": outcome_quality,
+            "a_param": self.optimizer.params['a']
         }
+        
+        self.logger.log_step(metrics)
+        return metrics
     
     def run_simulation(self, steps=100, verbose=True):
-        """
-        Run extended sovereign evolution.
-        """
         if verbose:
             phase_name, _, icon, _, _ = self.moon.get_phase()
-            print(f"\n[INIT] Sovereign Substrate Simulation (ASOE-Enhanced)")
-            print(f"[INIT] Lunar Phase: {phase_name} {icon}")
-            print(f"[INIT] Duration: {steps} steps\n")
-        
-        history = []
+            print(f"\n[INIT] Adaptive Sovereign Substrate Online")
+            print(f"[INIT] Lunar Phase: {phase_name} {icon} | Duration: {steps} steps\n")
         
         for step in range(steps):
             metrics = self.evolve_sovereign_step()
-            history.append(metrics)
-            
             if verbose and step % 20 == 0:
                 print(f"[T={step:3d}] g={metrics['g_parameter']:.3f} "
                       f"coherence={metrics['coherence']:.3f} "
-                      f"utility={metrics['sovereignty']:.3f} "
-                      f"state=|{metrics['qutrit_state']}⟩ "
+                      f"utility={metrics['sovereignty']:.4f} "
+                      f"a_tuning={metrics['a_param']:.3f} "
                       f"[{metrics['confidence']}]")
         
         if verbose:
-            print(f"\n[COMPLETE] Total Torsion Events: {self.total_torsion_events}")
-            print(f"[COMPLETE] Final Sovereignty (Utility): {self.sovereignty_level:.3f}")
-            print(f"[COMPLETE] Final g-parameter: {self.sync_coherence():.3f}")
+            print(f"\n[COMPLETE] Final Sovereignty: {self.sovereignty_level:.4f}")
+            self.save_dashboard()
+            
+    def save_dashboard(self):
+        """Generate System Health Dashboard (PNG)"""
+        import matplotlib
+        matplotlib.use('Agg')
+        import matplotlib.pyplot as plt
         
-        return history
-    
+        history = self.logger.history
+        timeline = [h['timeline_pos'] for h in history]
+        g_param = [h['g_parameter'] for h in history]
+        coherence = [h['coherence'] for h in history]
+        sovereignty = [h['sovereignty'] for h in history]
+        a_tuning = [h['a_param'] for h in history]
+        
+        fig, axes = plt.subplots(2, 2, figsize=(14, 10), facecolor='#0d0d0d')
+        
+        # Plot 1: g-parameter
+        ax1 = axes[0, 0]
+        ax1.set_facecolor('#0d0d0d')
+        ax1.plot(timeline, g_param, color='#C4A6D1', linewidth=2)
+        ax1.axhline(y=0.3, color='#ff6b6b', linestyle='--', alpha=0.5)
+        ax1.set_title('g-Parameter Evolution', color='#C4A6D1')
+        ax1.tick_params(colors='#888')
+        
+        # Plot 2: Coherence
+        ax2 = axes[0, 1]
+        ax2.set_facecolor('#0d0d0d')
+        ax2.plot(timeline, coherence, color='#6bcf7f', linewidth=2)
+        ax2.set_title('Quantum Coherence', color='#C4A6D1')
+        ax2.tick_params(colors='#888')
+        
+        # Plot 3: ASOE Utility
+        ax3 = axes[1, 0]
+        ax3.set_facecolor('#0d0d0d')
+        ax3.plot(timeline, sovereignty, color='#ffcc00', linewidth=2)
+        ax3.set_title('Expected Utility (ASOE)', color='#C4A6D1')
+        ax3.tick_params(colors='#888')
+        
+        # Plot 4: Adaptive Tuning (a_param)
+        ax4 = axes[1, 1]
+        ax4.set_facecolor('#0d0d0d')
+        ax4.plot(timeline, a_tuning, color='#4dadff', linewidth=2)
+        ax4.set_title('Adaptive Parameter Alpha (a)', color='#C4A6D1')
+        ax4.tick_params(colors='#888')
+        
+        plt.tight_layout()
+        plt.savefig('sovereign_dashboard.png', facecolor='#0d0d0d')
+        print(f"[+] Dashboard saved: sovereign_dashboard.png")
+
     def get_status_report(self):
-        """
-        Generate comprehensive system status.
-        """
         g = self.sync_coherence()
         phase_name, status, icon, phase_idx, illumination = self.moon.get_phase()
         tidal = self.moon.calculate_tidal_influence(phase_idx)
-        confidence = self.optimizer.get_confidence_category(self.asoe_utility)
+        patterns = self.logger.analyze_patterns()
         
         report = f"""
 ╔═══════════════════════════════════════════════════════════╗
-║         SOVEREIGN SUBSTRATE STATUS REPORT                 ║
+║         SOVEREIGN SUBSTRATE STATUS (ADAPTIVE)             ║
 ╠═══════════════════════════════════════════════════════════╣
 ║ QUANTUM LAYER                                             ║
-║   State:           |{self.qutrit.measure()}⟩                                      ║
 ║   Coherence:       {self.hor.metric_coherence:.4f}                              ║
 ║   Torsion Events:  {self.total_torsion_events}                                    ║
 ║                                                           ║
 ║ PHYSICS LAYER                                             ║
 ║   g-parameter:     {g:.4f} {'[SOVEREIGN]' if g < 0.3 else '[CONSENSUS]'}         ║
-║   Vibe:            {self.pleroma.vibe}                                 ║
+║   ASOE α-Param:    {self.optimizer.params['a']:.4f} {'[STABLE]' if self.optimizer.params['a'] < 1.3 else '[ADAPTING]'}       ║
 ║                                                           ║
 ║ TEMPORAL LAYER                                            ║
 ║   Lunar Phase:     {phase_name} {icon}                       ║
-║   Illumination:    {illumination*100:.1f}%                                ║
 ║   Tidal Force:     {tidal:.1f}%                                  ║
 ║                                                           ║
-║ ASOE DECISION METRICS                                     ║
-║   Timeline Pos:    {self.timeline_position}                                    ║
+║ COGNITIVE METRICS                                         ║
 ║   Exp. Utility:    {self.asoe_utility:.4f}                              ║
-║   Confidence:      {confidence}              ║
-║   Status:          {'STABLE' if self.asoe_utility > 0.4 else 'TENSIONED'}                                  ║
+║   Stability Index: {patterns.get('utility_correlation', 0):.4f} [Corr U:R]             ║
+║   Status:          {'OPTIMIZED' if self.asoe_utility > 0.4 else 'TRAINING'}                                 ║
 ╚═══════════════════════════════════════════════════════════╝
         """
         return report
 
-
 if __name__ == "__main__":
-    # Initialize sovereign substrate
     substrate = SovereignSubstrate(initial_state=2)
-    
-    # Display initial status
     print(substrate.get_status_report())
-    
-    # Run simulation
-    history = substrate.run_simulation(steps=100, verbose=True)
-    
-    # Final status
+    substrate.run_simulation(steps=100, verbose=True)
     print(substrate.get_status_report())
