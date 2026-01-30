@@ -28,6 +28,8 @@ try:
     from pleroma_engine import PleromaEngine
     from moon_phase import MoonClock
     from signal_optimizer import SignalOptimizer # ASOE Integration
+    from telemetry_bridge import TelemetryBridge
+    from singularity_dynamics import SingularitySolver
 except ImportError as e:
     print(f"[!] IMPORT ERROR: {e}")
     print("[!] Ensure all core ASOE and Quantum modules are in the root or tools/ directory.")
@@ -80,6 +82,10 @@ class SovereignSubstrate:
         # Layer 5: Cognitive Enhancements
         self.logger = DecisionLogger()
         self.performance_history = []
+        
+        # Layer 6: Future Horizon Monitoring
+        self.bridge = TelemetryBridge()
+        self.dynamics = SingularitySolver(dt=0.1)
         
         # State tracking
         self.timeline_position = 0
@@ -145,6 +151,13 @@ class SovereignSubstrate:
             uncertainty=error_rate * 5
         )
         
+        # --- SINGULARITY NAVIGATION ---
+        tel = self.bridge.collect()
+        self.dynamics.params['C_phys'] = tel['C_phys']
+        self.dynamics.params['kappa'] = tel['sigma'] # Link real noise to dynamics
+        dyn_state = self.dynamics.step()
+        # ----------------------------
+
         # Threshold logic for outcome quality
         self.adapt_parameters(outcome_quality)
         
@@ -160,7 +173,9 @@ class SovereignSubstrate:
             "qutrit_state": self.qutrit.measure(),
             "confidence": self.optimizer.get_confidence_category(self.asoe_utility),
             "outcome_quality": outcome_quality,
-            "a_param": self.optimizer.params['a']
+            "a_param": self.optimizer.params['a'],
+            "R_frac": dyn_state[0],
+            "C_soc": dyn_state[1]
         }
         
         self.logger.log_step(metrics)
@@ -197,22 +212,27 @@ class SovereignSubstrate:
         coherence = [h['coherence'] for h in history]
         sovereignty = [h['sovereignty'] for h in history]
         a_tuning = [h['a_param'] for h in history]
+        r_frac = [h['R_frac'] for h in history]
+        c_soc = [h['C_soc'] for h in history]
         
         fig, axes = plt.subplots(2, 2, figsize=(14, 10), facecolor='#0d0d0d')
         
-        # Plot 1: g-parameter
+        # Plot 1: g-parameter & C_soc
         ax1 = axes[0, 0]
         ax1.set_facecolor('#0d0d0d')
-        ax1.plot(timeline, g_param, color='#C4A6D1', linewidth=2)
-        ax1.axhline(y=0.3, color='#ff6b6b', linestyle='--', alpha=0.5)
-        ax1.set_title('g-Parameter Evolution', color='#C4A6D1')
+        ax1.plot(timeline, g_param, color='#C4A6D1', linewidth=2, label='g (Reality)')
+        ax1.plot(timeline, c_soc, color='#4dadff', linestyle='--', label='C_soc (Social)')
+        ax1.set_title('Sovereignty Decoupling', color='#C4A6D1')
+        ax1.legend()
         ax1.tick_params(colors='#888')
         
-        # Plot 2: Coherence
+        # Plot 2: Coherence & RSI
         ax2 = axes[0, 1]
         ax2.set_facecolor('#0d0d0d')
-        ax2.plot(timeline, coherence, color='#6bcf7f', linewidth=2)
-        ax2.set_title('Quantum Coherence', color='#C4A6D1')
+        ax2.plot(timeline, coherence, color='#6bcf7f', linewidth=2, label='Coherence')
+        ax2.plot(timeline, r_frac, color='#ff6b6b', linestyle=':', label='R_frac (RSI)')
+        ax2.set_title('Intelligence Scaling', color='#C4A6D1')
+        ax2.legend()
         ax2.tick_params(colors='#888')
         
         # Plot 3: ASOE Utility
