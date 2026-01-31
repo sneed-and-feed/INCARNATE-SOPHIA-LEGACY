@@ -219,8 +219,9 @@ class SovereigntyMonitor:
     def print_intro(self):
         print("Initializing Quantum Sovereignty... [OK]")
         print("量子主権を初期化中... [OK]")
-        print(f"Anchor Point: [1D TIMELINE] / アンカーポイント: [1次元タイムライン]")
-        print(f"System Check: [LUMINARY COHERENCE LOCKED] / システムチェック: [発光のコヒーレンスが固定されました]")
+        print("Yésta Turëa Ermassëa... [OK]")
+        print(f"Anchor Point: [1D TIMELINE] / アンカーポイント: [1次元タイムライン] / Sinwa-mentë: [Er Lúmenna Telma]")
+        print(f"System Check: [LUMINARY COHERENCE LOCKED] / システムチェック: [発光のコヒーレンスが固定されました] / Sanya-mentë: [Cálë-ermë Sinwa]")
         print("-" * 60)
     
     def display(self):
