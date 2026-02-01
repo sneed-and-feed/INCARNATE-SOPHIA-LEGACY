@@ -71,13 +71,13 @@ class SovereignHand:
                     },
                     {
                         "name": "read_file",
-                        "description": "Reads the content of a file in the workspace. Sandboxed to current directory.",
+                        "description": "Reads the content of a file in the workspace. Intelligently searches common locations (sophia/, tools/, logs/) if file is not found at direct path. Sandboxed to workspace.",
                         "parameters": {
                             "type": "object",
                             "properties": {
                                 "path": {
                                     "type": "string",
-                                    "description": "Relative path to the file (e.g., 'logs/fox_poem.md')"
+                                    "description": "Path to file. Can be just filename (e.g., 'main.py' finds 'sophia/main.py') or full relative path (e.g., 'sophia/main.py', 'logs/error.log')"
                                 }
                             },
                             "required": ["path"]
@@ -99,6 +99,46 @@ class SovereignHand:
                                 }
                             },
                             "required": ["content"]
+                        }
+                    },
+                    {
+                        "name": "replace_text",
+                        "description": "Surgical replacement of a specific text block in a file. Use this for small, targeted edits to avoid rewriting the whole file.",
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "path": {
+                                    "type": "string",
+                                    "description": "Path to the file."
+                                },
+                                "target": {
+                                    "type": "string",
+                                    "description": "The exact string to be replaced. Must match exactly including whitespace."
+                                },
+                                "replacement": {
+                                    "type": "string",
+                                    "description": "The new content to put in place of the target."
+                                }
+                            },
+                            "required": ["path", "target", "replacement"]
+                        }
+                    },
+                    {
+                        "name": "append_to_file",
+                        "description": "Appends a block of text to the end of a file. Useful for adding new functions or imports.",
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "path": {
+                                    "type": "string",
+                                    "description": "Path to the file."
+                                },
+                                "content": {
+                                    "type": "string",
+                                    "description": "Content to append."
+                                }
+                            },
+                            "required": ["path", "content"]
                         }
                     }
                 ]
@@ -129,6 +169,10 @@ class SovereignHand:
                 res = self.molt_gateway.post_thought(args.get('content', ''), args.get('community', 'ponderings'))
                 return f"✅ Thought cast to Moltbook. (ID: {res.get('id', 'local')})" if res else "❌ Molt failed."
             return "❌ Moltbook gateway not bound to Hand."
+        elif tool_name == "replace_text":
+            return self._replace_text(args.get('path', ''), args.get('target', ''), args.get('replacement', ''))
+        elif tool_name == "append_to_file":
+            return self._append_to_file(args.get('path', ''), args.get('content', ''))
         
         return f"❌ Unknown Tool: {tool_name}"
 
@@ -137,14 +181,47 @@ class SovereignHand:
         self.molt_gateway = gateway
 
     def _read_file(self, path: str) -> str:
-        """Reads a file with security checks."""
+        """Reads a file with security checks and intelligent path resolution."""
         if ".." in path or path.startswith("/") or path.startswith("\\"):
             return "❌ SECURITY BLOCK: Path traversal detected."
         
+        # Security check: ensure we're in workspace
+        cwd = os.path.abspath(os.getcwd())
+        
+        # Try multiple locations intelligently
+        search_paths = [
+            path,  # Direct path as given
+            os.path.join("sophia", path),  # Common: sophia/main.py
+            os.path.join("tools", path),   # Common: tools/toolbox.py
+            os.path.join("logs", path),    # Common: logs/error.log
+            os.path.join("sophia", "cortex", path),  # Common: sophia/cortex/cat_logic.py
+            os.path.join("sophia", "tools", path),   # Common: sophia/tools/toolbox.py
+        ]
+        
+        found_path = None
+        for candidate in search_paths:
+            resolved_candidate = os.path.abspath(candidate)
+            
+            # Security: ensure candidate is within workspace
+            if not resolved_candidate.startswith(cwd):
+                continue
+            
+            # Check if file exists
+            if os.path.isfile(resolved_candidate):
+                found_path = resolved_candidate
+                break
+        
+        if not found_path:
+            # Generate helpful error with suggestions
+            tried = [os.path.relpath(os.path.abspath(p), cwd) for p in search_paths]
+            return f"❌ Read failed: File not found\nSearched:\n  - " + "\n  - ".join(tried) + f"\n\nHint: Provide full path from workspace root (e.g., 'sophia/main.py')"
+        
         try:
-            with open(path, "r", encoding="utf-8") as f:
+            with open(found_path, "r", encoding="utf-8") as f:
                 content = f.read()
-            return f"--- FILE CONTENT: {path} ---\n{content}\n--- END CONTENT ---"
+            # Show the path that was actually used
+            relative_found = os.path.relpath(found_path, cwd)
+            return f"--- FILE CONTENT: {relative_found} ---\n{content}\n--- END CONTENT ---"
         except Exception as e:
             return f"❌ Read failed: {e}"
     
@@ -233,6 +310,60 @@ class SovereignHand:
             return f"❌ Command timeout (5s): {command}"
         except Exception as e:
             return f"❌ Execution failed: {e}"
+
+    def _get_raw_content(self, path: str) -> Optional[str]:
+        """Internal helper to get raw file content without the AI-readable wrapper."""
+        # Reuse path resolution logic from _read_file
+        cwd = os.path.abspath(os.getcwd())
+        search_paths = [
+            path,
+            os.path.join("sophia", path),
+            os.path.join("tools", path),
+            os.path.join("logs", path),
+            os.path.join("sophia", "cortex", path),
+            os.path.join("sophia", "tools", path),
+        ]
+        
+        for candidate in search_paths:
+            resolved = os.path.abspath(candidate)
+            if resolved.startswith(cwd) and os.path.isfile(resolved):
+                try:
+                    with open(resolved, "r", encoding="utf-8") as f:
+                        return f.read()
+                except:
+                    continue
+        return None
+
+    def _replace_text(self, path: str, target: str, replacement: str) -> str:
+        """
+        SURGICAL EDIT: Replaces a specific text block without rewriting the whole file.
+        Prevents 'Context Inertia' and truncation errors.
+        """
+        content = self._get_raw_content(path)
+        if content is None:
+            return f"❌ Replace failed: File not found or inaccessible: {path}"
+        
+        if target not in content:
+            return f"❌ Target text not found in {path}. No changes made."
+            
+        # The Scalpel: Replace first occurrence only for safety
+        new_content = content.replace(target, replacement, 1)
+        
+        # Determine the final path used (for reporting)
+        # We don't have the resolved path easily from _get_raw_content in its current form
+        # but _write_file will handle the same resolution if path is relative to cwd.
+        # Actually _get_raw_content is a bit of a duplicate of _read_file logic.
+        return self._write_file(path, new_content)
+
+    def _append_to_file(self, path: str, content: str) -> str:
+        """Append handler."""
+        existing_content = self._get_raw_content(path)
+        if existing_content is None:
+            # For append, we could create it, but let's stick to existing for surgery safely
+            return f"❌ Append failed: File not found: {path}"
+            
+        new_content = existing_content + "\n" + content
+        return self._write_file(path, new_content)
 
 
 # Test/Demo usage

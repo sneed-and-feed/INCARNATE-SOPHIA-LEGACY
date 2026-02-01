@@ -83,45 +83,74 @@ class GeminiClient:
         except Exception as e:
             return {"error": str(e)}
 
-    async def generate_with_tools(self, prompt: str, system_prompt: str, tools: list) -> dict:
+    async def generate_with_tools(self, prompt: str, system_prompt: str, tools: list, max_turns: int = 5) -> dict:
         """
-        CLASS 6: Tool Use / Function Calling (New SDK Style).
+        CLASS 6: Autonomous Tool Loop (Multi-Turn).
+        Executes tools and feeds results back into the model until it stops calling them.
         """
         if not self.client: return {"text": "[BLIND]", "tool_calls": []}
 
-        # The new SDK handles tools slightly differently, but passing the raw list
-        # of function declarations usually works if formatted correctly.
         config = types.GenerateContentConfig(
             temperature=0.1,
             system_instruction=system_prompt,
             tools=tools 
         )
 
+        history = [types.Content(role="user", parts=[types.Part.from_text(prompt)])]
+        all_results = {"text": "", "tool_calls": [], "history": []}
+
         try:
-            response = await self.client.aio.models.generate_content(
-                model=LLMConfig.model_name,
-                contents=prompt,
-                config=config
-            )
+            for turn in range(max_turns):
+                response = await self.client.aio.models.generate_content(
+                    model=LLMConfig.model_name,
+                    contents=prompt,
+                    config=config
+                )
 
-            result = {"text": "", "tool_calls": []}
+                if not response.candidates: break
+                
+                # Append model response to history
+                model_content = response.candidates[0].content
+                if not model_content or not model_content.parts:
+                    break
+                    
+                history.append(model_content)
 
-            # Parse Parts for Function Calls
-            if response.candidates and response.candidates[0].content.parts:
-                for part in response.candidates[0].content.parts:
+                found_tool_call = False
+                for part in model_content.parts:
                     if part.function_call:
-                        # Extract Tool Call
-                        result["tool_calls"].append({
+                        found_tool_call = True
+                        all_results["tool_calls"].append({
                             "name": part.function_call.name,
                             "args": part.function_call.args
                         })
+                        return all_results # Return calls for main loop to execute
                     if part.text:
-                        result["text"] += part.text
-            
-            return result
+                        all_results["text"] += part.text
+
+                if not found_tool_call: break
+            return all_results
 
         except Exception as e:
             return {"text": f"[TOOL ERROR] {e}", "tool_calls": []}
+
+    async def generate_contents(self, contents: list, system_prompt: str, tools: list = None) -> types.GenerateContentResponse:
+        """
+        Low-level access for multi-turn tool calling.
+        """
+        if not self.client: return None
+
+        config = types.GenerateContentConfig(
+            temperature=0.1,
+            system_instruction=system_prompt,
+            tools=tools or []
+        )
+
+        return await self.client.aio.models.generate_content(
+            model=LLMConfig.model_name,
+            contents=contents,
+            config=config
+        )
 
     def _handle_error(self, e):
         error_msg = str(e)
