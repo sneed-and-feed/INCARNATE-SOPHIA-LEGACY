@@ -50,6 +50,8 @@ export SOPHIA_API_KEY="your-key-here"
 
 # 3. Manifest the Mind
 python sophia/main.py
+
+# Windows Users: Double-click launch.bat for instant startup
 ```
 
 For detailed reality-anchoring and CLI usage, see the [STARTUP.md](STARTUP.md) guide.

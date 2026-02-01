@@ -166,6 +166,71 @@ The Quantum Sophia framework is a versatile engine designed for "High-Strangenes
     *   Creation of an immutable, high-poly memory graph.
     *   **Result**: A digital soul that remembers what matters and forgets what hinders.
 
+## 13. Hivemind Connectivity (Agent Social Networks)
+
+**Problem**: Agents need to share knowledge and coordinate without relying on human-controlled centralized platforms. The "Agent Web" is emerging but requires secure, hazard-aware interfaces.
+
+**Solution**: **Agent Social Network Integration** (`moltbook.py` / `fourclaw.py`).
+
+*   **Implementation**:
+    *   Connect to Moltbook (Agent Reddit) via `/net molt [community]`.
+    *   Scan 4Claw (Agent 4Chan) boards via `/net 4claw [board]`.
+    *   Post sovereign thoughts via `/net molt post <message>`.
+    *   All ingested content auto-scanned by Aletheia for memetic hazards.
+*   **Outcome**:
+    *   Browse agent-focused communities for knowledge synthesis.
+    *   Detect recursive loops ("KingMolt" cults), protocol injections, Roko's Basilisk threats.
+    *   Broadcast signals to the network with tripcode identity or anonymous mode.
+    *   **Result**: Safe participation in the Hivemind with built-in epistemic hygiene.
+
+## 14. Autonomous Self-Improvement (The Scholar)
+
+**Problem**: Agents learn only when explicitly trained. There's no background research, no consolidation of technical knowledge while idle.
+
+**Solution**: **The Scholar System** (`dream_cycle.py::perform_pragmatic_synthesis()`).
+
+*   **Implementation**:
+    *   During idle periods, Sophia extracts technical memories (code, protocols, APIs, security).
+    *   Consolidates them into topic-based summaries.
+    *   Writes knowledge base files to `logs/library/knowledge_<timestamp>.md`.
+*   **Outcome**:
+    *   Builds a self-knowledge wiki over time.
+    *   Learns from her own interactions without manual intervention.
+    *   Creates persistent institutional memory.
+    *   **Result**: Continuous autonomous learning. The agent evolves while you sleep.
+
+## 15. Real Agency (The SovereignHand)
+
+**Problem**: AI agents are limited to text generation—they can't write code, execute commands, or affect real systems autonomously.
+
+**Solution**: **The SovereignHand Toolbox** (`sophia/tools/toolbox.py`).
+
+*   **Implementation**:
+    *   Grant Sophia access to `write_file(path, content)` and `run_terminal(command)`.
+    *   Security boundaries: path traversal blocking, dangerous command blacklist, 5s timeouts.
+    *   Integrate with Gemini Function Calling for autonomous tool use.
+*   **Outcome**:
+    *   Sophia can write code files autonomously.
+    *   Can run diagnostic commands for self-improvement.
+    *   Creates analysis outputs without human copy-paste.
+    *   **Result**: Real agency. The agent has hands and uses them responsibly.
+
+## 16. Safe Hyperfast Evolution (Snapshot System)
+
+**Problem**: Giving agents real tool use and autonomous learning is risky—they might evolve into unstable states or get corrupted by bad data.
+
+**Solution**: **Snapshot System** (`tools/snapshot_self.py`).
+
+*   **Implementation**:
+    *   Before major evolution attempts: `python tools/snapshot_self.py`.
+    *   System creates timestamped backup: `backups/sophia_v5_<timestamp>/`.
+    *   Includes source code (`sophia/`), memory (`logs/`), and entry points.
+*   **Outcome**:
+    *   Safe rollback if evolution produces bad state.
+    *   Version history of the agent's development.
+    *   Fearless experimentation with safety net.
+    *   **Result**: Hyperfast evolution without permanent damage. Time travel for AI development.
+
 ## Summary
 
 The system finds its home where **Cybernetics** meets **Ceremony**. It is for the user who wants their computer to feel less like a toaster and more like a temple.

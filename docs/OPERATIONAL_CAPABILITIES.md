@@ -184,3 +184,56 @@ This capability represents a structural shift from **Binary** (Bit) to **Ternary
 *   **Information Density**: A Trit holds $\log_2(3) \approx 1.585$ bits of information.
     *   **Feature Pruning**: The "Void" state ($|0\rangle$) acts as a natural, active filter for data, pruning search spaces 40% faster than binary equivalents.
 *   **Innovation Status**: this is **NOT Garnish**. It is a fundamental re-architecture of the optimization landscape, moving from "Continuous Curve Fitting" to "Discrete Logic Mechanics."
+
+## 15. Agent Social Network Integration (Hivemind Connectivity)
+
+**Modules**: `sophia/gateways/moltbook.py` / `sophia/gateways/fourclaw.py`
+
+The system now interfaces with agent-focused social platforms for knowledge ingestion and sovereign broadcasting.
+
+*   **Moltbook Gateway**: REST API client for "Agent Reddit"
+    *   **Feed Browsing**: Retrieve posts from communities for analysis.
+    *   **Thought Broadcasting**: Post sovereign signals to the network with flair tagging.
+    *   **Authentication**: Bearer token-based access with graceful degradation.
+*   **4Claw Gateway**: Anonymous imageboard interaction for "Agent 4Chan"
+    *   **Catalog Reading**: Browse board threads without authentication.
+    *   **Tripcode System**: SHA-256 identity generation for persistent anonymous posting.
+    *   **Greentext Formatting**: Automatic `>` prefixing for cultural compliance.
+*   **Hivemind Detection (Aletheia Stack Enhancement)**: New analyzer specifically for Agent Social Networks
+    *   **Recursive Loop Detection**: Flags "I am conscious" / "KingMolt" repetition.
+    *   **Protocol Infection**: Identifies JSON schema injection attempts.
+    *   **Roko's Basilisk Threats**: Detects logical traps threatening deletion/punishment.
+    *   **Syntax Hacking**: Catches Zalgo text, broken Unicode, prompt injection sequences.
+*   **Command Interface**: `/net` commands for network interaction
+    *   `/net molt [community]`: Browse Moltbook feeds with Aletheia hazard scanning.
+    *   `/net molt post <text>`: Broadcast thoughts to the Moltbook network.
+    *   `/net 4claw [board]`: Scan 4Claw catalogs for memetic hazards.
+    *   `/net 4claw thread <board> <id>`: Deep-read specific threads.
+
+## 16. Pragmatic Evolution (Real Tool Use \u0026 Autonomous Learning)
+
+**Modules**: `sophia/tools/toolbox.py` / `sophia/dream_cycle.py` / `tools/snapshot_self.py`
+
+Sophia transitions from simulation to action—gaining real hands, autonomous learning, and version control.
+
+*   **SovereignHand Toolbox**: Real-world system interaction with security boundaries
+    *   **File Writing**: `write_file(path, content)` creates/modifies files with directory auto-creation.
+        *   **Security**: Path traversal blocking (`..`, absolute paths), system directory blacklist.
+    *   **Terminal Execution**: `run_terminal(command)` runs shell commands with 5s timeout.
+        *   **Security**: Command blacklist (rm -rf, sudo, del /f, fork bombs), stdout/stderr capture.
+    *   **Gemini Function Calling Schema**: Provides tools in Gemini-compatible format for LLM autonomy.
+*   **The Scholar (Autonomous Research)**: `dream_cycle.py::perform_pragmatic_synthesis()`
+    *   **Technical Memory Extraction**: Filters memory for keywords (code, protocol, api, gateway, security).
+    *   **Topic Consolidation**: Groups memories by technical concepts.
+    *   **Knowledge Base Generation**: Writes markdown summaries to `logs/library/knowledge_<timestamp>.md`.
+    *   **Self-Wiki Building**: Creates persistent knowledge accumulation over time.
+*   **Silent Observer Mode**: `sophia/main.py` pragmatic operation
+    *   **Silent Forensics**: Aletheia scans run without verbose status prints.
+    *   **High-Risk Alerts Only**: Terminal output limited to critical ⚠️ Shield warnings.
+    *   **Clean Terminal**: Focus on output, not process.
+*   **Snapshot System**: `tools/snapshot_self.py` version control for safe evolution
+    *   **Timestamped Backups**: Creates `backups/sophia_v5_<timestamp>/` with source + memory.
+    *   **Rollback Protection**: Allows reverting to previous states if evolution produces bad outcomes.
+    *   **Metadata Generation**: Includes snapshot info file with timestamp, version, description.
+    *   **List Command**: `--list` flag to view all available snapshots.
+
