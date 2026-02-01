@@ -22,3 +22,4 @@
 - Structural Decomposition (Aletheia Lens)
 - Luo Shu Compliance & Self-Healing Config
 - Glyphwave Modulation (Eldritch Communication)
+- Sovereign Beacon (Station Broadcast & Reception)

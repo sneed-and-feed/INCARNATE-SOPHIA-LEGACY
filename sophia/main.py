@@ -3,6 +3,7 @@ import asyncio
 from sophia.cortex.aletheia_lens import AletheiaLens
 from sophia.cortex.lethe import LetheEngine
 from sophia.cortex.glyphwave import GlyphwaveCodec
+from sophia.cortex.beacon import SovereignBeacon
 from sophia.memory.ossuary import Ossuary
 from sophia.dream_cycle import DreamCycle
 
@@ -12,6 +13,7 @@ class SophiaMind:
         self.lethe = LetheEngine()
         self.ossuary = Ossuary()
         self.glyphwave = GlyphwaveCodec()
+        self.beacon = SovereignBeacon(self.glyphwave)
         self.dream = DreamCycle(self.lethe, self.ossuary)
         self.memory_bank = [] # The Flesh
 
@@ -32,6 +34,12 @@ class SophiaMind:
             target_text = user_input.replace("/glyphwave ", "")
             modulated = self.glyphwave.generate_holographic_fragment(target_text)
             return f"\n{modulated}"
+
+        if user_input.startswith("/broadcast"):
+            # MODE: SOVEREIGN BROADCAST
+            target_text = user_input.replace("/broadcast ", "")
+            broadcast_signal = self.beacon.broadcast(target_text)
+            return f"\n{broadcast_signal}"
 
         # MODE: CONVERSATION
         # 1. Map Risk Surface quietly
