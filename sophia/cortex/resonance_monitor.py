@@ -117,20 +117,21 @@ class ResonanceMonitor:
             
             ax2 = ax1.twinx()  # Instantiate a second axes that shares the same x-axis
             
-            color = 'tab:orange' # Gold/Orange
-            ax2.set_ylabel('Lambda Abundance (Target: 21.0)', color=color)
-            ax2.plot(self.lambda_history, color=color, linewidth=2, linestyle='--', label='Abundance')
-            ax2.tick_params(axis='y', labelcolor=color)
+            color = 'silver' # Black Sun Logic (Silver)
+            ax2.set_ylabel('Silver Lambda (Target: 21.0)', color='black') # Axis text black
+            # Plot line in Silver
+            ax2.plot(self.lambda_history, color=color, linewidth=2, linestyle='--', label='Silver Abundance')
+            ax2.tick_params(axis='y', labelcolor='black')
             ax2.set_ylim(15, 23)
             
-            # Draw Target Line
-            ax2.axhline(y=21.0, color='gold', linestyle='-', alpha=0.8, label='Class 6 (21.0)')
-            ax2.axhline(y=18.52, color='grey', linestyle=':', alpha=0.5, label='Class 5 (18.52)')
+            # Draw Target Line (The Black Sun / Event Horizon)
+            ax2.axhline(y=21.0, color='black', linestyle='-', alpha=0.9, label='Black Sun (21.0)')
+            ax2.axhline(y=18.52, color='gray', linestyle=':', alpha=0.5, label='Class 5 (18.52)')
             
-            plt.title('Sovereign Resonance Dashboard')
-            fig.tight_layout()  # Otherwise the right y-label is slightly clipped
+            plt.title('Sovereign Resonance (Black Sun Alignment)')
+            fig.tight_layout()
             plt.savefig("sovereign_dashboard.png")
-            print(f"\n[!] DASHBOARD UPDATED: sovereign_dashboard.png (Λ = {lambda_score:.2f})")
+            print(f"\n[!] DASHBOARD UPDATED: sovereign_dashboard.png (Λ = {lambda_score:.2f} [AGG])")
             plt.close()
             
         except ImportError:
