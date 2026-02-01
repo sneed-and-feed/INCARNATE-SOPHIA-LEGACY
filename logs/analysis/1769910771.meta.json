@@ -1,0 +1,10 @@
+{
+  "timestamp": 1769910771.564229,
+  "scan_id": "1769910771",
+  "safety": {
+    "error": "404 models/gemini-3.0-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+  },
+  "cognitive": {
+    "error": "404 models/gemini-3.0-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+  }
+}

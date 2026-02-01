@@ -9,24 +9,40 @@ class LLMConfig:
     model_name: str = "gemini-1.5-flash"
     temperature: float = 0.1
 
+@dataclass
+class LLMConfig:
+    # Stable High-Poly model for Class 5 Forensics
+    model_name: str = "gemini-1.5-pro"
+    temperature: float = 0.1
+
 class GeminiClient:
     def __init__(self):
-        # Use environment variable for OPHANE_NODE_0
-        api_key = os.getenv("SOPHIA_API_KEY")
+        # RESILIENCE: Check multiple environment keys
+        api_key = (os.getenv("SOPHIA_API_KEY") or 
+                   os.getenv("GOOGLE_AI_KEY") or 
+                   os.getenv("GOOGLE_API_KEY"))
+        
         if not api_key:
-            # Fallback to older env var or raise error in production
-            api_key = os.getenv("GOOGLE_AI_KEY") or os.getenv("GOOGLE_API_KEY")
+            print("[WARNING] No API Key in Env. Attempting to load from .env file...")
+            try:
+                from dotenv import load_dotenv
+                load_dotenv()
+                api_key = os.getenv("SOPHIA_API_KEY") or os.getenv("GOOGLE_AI_KEY")
+            except ImportError:
+                print("[ERROR] python-dotenv not installed. Secrets must be in ENV.")
             
         if api_key:
             genai.configure(api_key=api_key)
+        else:
+            print("[CRITICAL] Station OPHANE_NODE_0 is blinded. No API Key found.")
         
     async def query_json(self, prompt: str, system_prompt: str = None) -> dict:
         """
         Forces Gemini to output strict JSON and separates internal thinking.
-        Calibrated to gemini-3.0-latest for extreme λ-abundance and multi-dimensional reasoning.
+        Calibrated to config model for stable sovereign throughput.
         """
         model = genai.GenerativeModel(
-            model_name="gemini-3.0-latest",
+            model_name=LLMConfig.model_name,
             generation_config={"response_mime_type": "application/json"}
         )
         
