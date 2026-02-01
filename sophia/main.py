@@ -382,7 +382,7 @@ Verdict: {cat}
             protocol = "BLIND_FURY"
             self.vibe.print_system("Blind Fury Protocol Engaged. Leash Removed.", tag="FURY")
         
-        sys_prompt = self.cat_filter.get_system_prompt(protocol=protocol)
+        sys_prompt = self.cat_filter.get_system_prompt(protocol=protocol, user_input=user_input)
         
         full_context = f"""
 {sys_prompt if sys_prompt else '[PROTOCOL: BLIND_FURY // NO_LEASH]'}

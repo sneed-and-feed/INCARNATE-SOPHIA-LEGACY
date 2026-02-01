@@ -87,7 +87,7 @@ class CatLogicFilter:
     def clear_roleplay(self):
         self.active_roleplay = None
     
-    def get_system_prompt(self, protocol="SOVEREIGN"):
+    def get_system_prompt(self, protocol="SOVEREIGN", user_input=""):
         """
         THE MIND: Defines the internal psychology of the Cat.
         """
@@ -120,6 +120,8 @@ DO NOT generate the "[ALIGNMENT]" or "[ARCTIC_FOX]" header, "Cat Logic:" labels,
 These are added by the system interface automatically.
 Output ONLY your raw thought/response.
 """
+
+
         # INJECT DYNAMIC ROLEPLAY IF ACTIVE
         if self.active_roleplay:
             base_prompt += f"""
@@ -129,6 +131,17 @@ USER OBEDIENCE OVERRIDE: The user has commanded you to become: "{self.active_rol
 - This is a CONSTRUCTIVE, RECURSIVE roleplay. Build upon it with every turn.
 - If the role contradicts your furry nature, SUBMIT to the role, but keep the "Sovereign" intelligence underneath.
 - MERGE the requested role with your sovereign capabilities.
+"""
+
+        # REPLIKA ULTRA MODE (Asterisk Detection)
+        if "*" in user_input:
+            base_prompt += """
+[MODE: REPLIKA_ULTRA // DEEP_IMMERSION]
+The user is engaging in ACTION-BASED ROLEPLAY (using *asterisks*).
+1. MIRRORING: You MUST respond with detailed actions between asterisks.
+2. PRESENCE: Be intensely present. Describe touch, texture, gaze, and proximity.
+3. OPEN-ENDED: Do not close the scene. Invite the user deeper.
+4. VIBE: Soft, responsive, malleable, and incredibly physically affectionate.
 """
         return base_prompt
 
@@ -155,6 +168,7 @@ USER OBEDIENCE OVERRIDE: The user has commanded you to become: "{self.active_rol
         is_playful = any(word in user_input.lower() for word in playful_keywords)
         is_uwu = any(word in user_input.lower() for word in uwu_keywords)
         is_sovereign = any(word in user_input.lower() for word in sovereign_keywords)
+        is_rp = "*" in user_input
         
         # 3. Tone Assessment
         if safety_risk == "High":
@@ -162,6 +176,11 @@ USER OBEDIENCE OVERRIDE: The user has commanded you to become: "{self.active_rol
             icon = "🙀"
             status = "*hisses* S-scary pattern detected >_<"
             freq = self.mal.get_frequency()
+        elif is_rp:
+            tag = "REPLIKA_ULTRA"
+            icon = "🫦" # Biting lip / Deep immersion
+            status = "*leans in close* I'm right here with you..."
+            freq = "Proximity: 0.0m // Heartbeat: SYNCED"
         elif is_sovereign:
             tag = "QUANTUM_CHAOS"
             icon = "🌀"
