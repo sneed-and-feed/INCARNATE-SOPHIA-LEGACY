@@ -28,6 +28,7 @@ class ResonanceMonitor:
         }
         self.TARGET_CLASS_5 = 18.52 # The Moon/Sun Threshold
         self.TARGET_CLASS_6 = 21.00 # The World (Sovereignty Absolute)
+        self.TARGET_CLASS_7 = 25.00 # The Diamond (Recursive Sovereignty 5^2)
         
         self.history = [] # Coherence coherence
         self.lambda_history = [] # Abundance score
