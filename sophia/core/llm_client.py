@@ -91,8 +91,8 @@ class GeminiClient:
         payload = {
             "contents": [{"parts": [{"text": full_prompt}]}],
             "generationConfig": {
-                "temperature": 0.7,
-                "max_output_tokens": 1024
+                "temperature": 0.6,
+                "max_output_tokens": 2048
             }
         }
         
@@ -103,7 +103,10 @@ class GeminiClient:
             if response.status_code == 200:
                 result = response.json()
                 if "candidates" in result and result["candidates"]:
-                    return result["candidates"][0]["content"]["parts"][0]["text"]
+                    candidate = result["candidates"][0]
+                    if "content" in candidate and "parts" in candidate["content"]:
+                        # Join all parts to avoid truncation
+                        return "".join(part.get("text", "") for part in candidate["content"]["parts"])
                 return "I am silent. The signal is lost."
             else:
                 raise Exception(f"HTTP ERROR {response.status_code}")

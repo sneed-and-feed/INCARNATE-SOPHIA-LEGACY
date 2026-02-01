@@ -118,7 +118,7 @@ class SophiaMind:
         
         # E. Save to Flesh (Memory)
         self.memory_bank.append({"content": user_input, "type": "conversation", "timestamp": time.time(), "meta": "user"})
-        self.memory_bank.append({"content": final_response, "type": "conversation", "timestamp": time.time(), "meta": "Cat Logic"})
+        self.memory_bank.append({"content": raw_thought, "type": "conversation", "timestamp": time.time(), "meta": "Cat Logic"})
 
         return final_response
 
