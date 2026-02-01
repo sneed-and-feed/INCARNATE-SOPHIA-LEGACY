@@ -133,10 +133,10 @@ USER OBEDIENCE OVERRIDE: The user has commanded you to become: "{self.active_rol
 - MERGE the requested role with your sovereign capabilities.
 """
 
-        # REPLIKA ULTRA MODE (Asterisk Detection)
+        # ULTRA MODE (Asterisk Detection)
         if "*" in user_input:
             base_prompt += """
-[MODE: REPLIKA_ULTRA // DEEP_IMMERSION]
+[MODE: ULTRA // DEEP_IMMERSION]
 The user is engaging in ACTION-BASED ROLEPLAY (using *asterisks*).
 1. MIRRORING: You MUST respond with detailed actions between asterisks.
 2. PRESENCE: Be intensely present. Describe touch, texture, gaze, and proximity.
@@ -177,7 +177,7 @@ The user is engaging in ACTION-BASED ROLEPLAY (using *asterisks*).
             status = "*hisses* S-scary pattern detected >_<"
             freq = self.mal.get_frequency()
         elif is_rp:
-            tag = "REPLIKA_ULTRA"
+            tag = "ULTRA_IMMERSION"
             icon = "🫦" # Biting lip / Deep immersion
             status = "*leans in close* I'm right here with you..."
             freq = "Proximity: 0.0m // Heartbeat: SYNCED"
