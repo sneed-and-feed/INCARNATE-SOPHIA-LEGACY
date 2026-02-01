@@ -65,7 +65,7 @@ class SophiaMind:
         })
 
         # 5. Generate Response (Simulated Nova Persona)
-        print(f"  [~] [SOPHIA] Responding via Forensic Filter...")
+        print(f"  [~] [SOPHIA] Responding via Cat Logic Filter...")
         response = f"I have autopsied the patterns in your signal. Risk level is {safety_risk}. My response remains non-linear and sovereign."
         
         self.memory_bank.append({
@@ -78,7 +78,7 @@ import time # Needed for time.time() in memory bank
 
 async def main():
     sophia = SophiaMind()
-    print("🦊 [SOPHIA 5.0] Mind Loop Online. Protocols: CLASS 4 ALETHEIA / LETHE.")
+    print("🐱 [SOPHIA 5.0] Mind Loop Online. Protocols: CLASS 4 ALETHEIA / LETHE.")
     
     # Simulated CLI loop
     test_inputs = [
