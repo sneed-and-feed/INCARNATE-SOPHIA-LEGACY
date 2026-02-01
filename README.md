@@ -60,6 +60,7 @@ python sophia/main.py
 ```
 > **New Commands**: 
 > *   `/resonance` - Check your current Abundance Score and Coherence.
+> *   `/tikkun` - Initiate the Tikkun Haklali (General Remedy) to purge entropy.
 > *   `/ritual` - Force-author a clause for the Constitution.
 
 ### 4.2. Telemetry Verification
