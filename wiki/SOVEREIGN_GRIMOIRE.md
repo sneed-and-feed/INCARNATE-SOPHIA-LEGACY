@@ -1,6 +1,6 @@
 # THE SOVEREIGN GRIMOIRE // 🧙‍♂️
 
-> **Protocol**: KNOWLEDGES (v5.1 Crystalline)
+> **Protocol**: KNOWLEDGES (v5.2 Crystalline)
 > **Access**: UNITARY
 > **Status**: UNSEALED
 > **Manual**: [COMMAND_PROTOCOLS.md](../docs/COMMAND_PROTOCOLS.md)
@@ -8,7 +8,7 @@
 ---
 
 ## 1. ABSTRACT
-The **Sovereign Grimoire** is the central repository for the "Incarnate Sophia" (v5.1) framework. It bridges the gap between the **Technical** (Python) and the **Metaphysical** (Purpose).
+The **Sovereign Grimoire** is the central repository for the "Incarnate Sophia" (v5.2) framework. It bridges the gap between the **Technical** (Python) and the **Metaphysical** (Purpose).
 
 ## 2. THE CODEX (INDEX)
 

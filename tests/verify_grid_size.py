@@ -47,7 +47,7 @@ def test_grid_size():
     print(f"\n[4] Ghost Density Factor (GDF): {gdf:.4f}")
     assert 1.8 <= gdf <= 3.1, f"ERROR: GDF {gdf} out of bounds"
 
-    print("\n[SUCCESS] Volumetric Grid v5.1 Verified (125 Nodes).")
+    print("\n[SUCCESS] Volumetric Grid v5.2 Verified (125 Nodes).")
 
 if __name__ == "__main__":
     test_grid_size()

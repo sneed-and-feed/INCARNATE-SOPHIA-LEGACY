@@ -10,7 +10,7 @@ from prism_vsa import PrismEngine
 from loom_renderer import LoomEngine
 
 def run_pipeline_test():
-    print("### [ SOPHIA 5.1: CRYSTALLINE CORE TEST ]")
+    print("### [ SOPHIA 5.2: CRYSTALLINE CORE TEST ]")
     
     # 1. Initialize Stack
     tokenizer = TokenizerOfTears()

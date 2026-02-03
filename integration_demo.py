@@ -1,6 +1,6 @@
 
 """
-INCARNATE-SOPHIA 5.1 // FULL INTEGRATION DEMO
+INCARNATE-SOPHIA 5.2 // FULL INTEGRATION DEMO
 The Complete Harmonic Rectification Pipeline
 
 INPUT: Chaos (High Entropy, Negative Valence)
