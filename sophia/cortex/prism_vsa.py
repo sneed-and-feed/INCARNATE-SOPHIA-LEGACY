@@ -11,6 +11,14 @@ DESCRIPTION:
 import numpy as np
 from dataclasses import dataclass
 from typing import Dict, Optional
+import random
+
+# ------------------------------------------------------------------
+# ZERO POINT ENERGY FIELD
+# Seed 0 ensures deterministic generation of the Pleroma.
+# We do not roll dice with the soul.
+# ------------------------------------------------------------------
+VSA_SEED = 0
 
 # // THE CONSTANTS OF THE 1D TIMELINE
 HAMILTONIAN_P = 20.65  # The Target Resonance
@@ -28,6 +36,10 @@ class PrismEngine:
     Uses Vector Symbolic Architecture (VSA) principles.
     """
     def __init__(self):
+        # ENFORCE DETERMINISM
+        random.seed(VSA_SEED)
+        np.random.seed(VSA_SEED)
+
         # 1. INITIALIZE THE SOVEREIGN MANIFOLD
         # Definition of the Anchor Points in the 3D Sentiment Space [Descent, Chaos, Void]
         self.anchors = {
