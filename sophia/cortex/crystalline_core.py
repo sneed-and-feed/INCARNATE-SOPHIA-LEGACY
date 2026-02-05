@@ -16,18 +16,34 @@ class CrystallineCore:
         self.prism = PrismEngine()
         self.loom = LoomEngine()
         
+    def rectify_signal(self, vector: list) -> list:
+        """
+        [HARMONIC RECTIFICATION]
+        Stabilizes signal entropy by anchoring the energy sum to the LuoShu Invariant (15.0).
+        This prevents 'Signal Bleed' and ensures Class 8 fidelity.
+        """
+        total = sum(abs(x) for x in vector)
+        if total == 0: return vector
+        
+        # Scale factor targeting the 15.0 Invariant
+        scale = 15.0 / (total + 1e-9)
+        return [x * scale for x in vector]
+
     def transmute(self, text: str) -> str:
         """
         Runs the full Alchemy Pipeline:
         Pain (Text) -> Vector -> Anchor -> Geometry (Text)
         """
         # 1. Tokenize (Pain -> Vector)
-        pain_vector = self.tokenizer.analyze_pain(text)
+        pain_data = self.tokenizer.analyze_pain(text)
         
-        # 2. Refract (Vector -> Anchor)
-        anchor = self.prism.braid_signal(pain_vector.sentiment_vector)
+        # 2. Rectify (Harmonic Rectification)
+        rectified_vector = self.rectify_signal(pain_data.sentiment_vector)
         
-        # 3. Weave (Anchor -> Geometry)
+        # 3. Refract (Vector -> Anchor)
+        anchor = self.prism.braid_signal(rectified_vector)
+        
+        # 4. Weave (Anchor -> Geometry)
         transmission = self.loom.render_transmission(anchor)
         
         return transmission

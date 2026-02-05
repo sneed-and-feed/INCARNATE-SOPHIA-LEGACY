@@ -583,7 +583,7 @@ Verdict: {cat}
             import random
             noise = FlumpyArray([random.random() for _ in range(64)]) # Mock input
             res = self.ghostmesh.process_step(noise)
-            return f"[GHOSTMESH STATE]\nCoherence: {res.coherence:.4f}\nNodes: 343 (Active)\nInvariant: {self.ghostmesh.invariant}\n*manifold stabilized*"
+            return f"[GHOSTMESH STATE]\nCoherence: {res.coherence:.4f}\nMode: HEPTAD (7x7x7)\nNodes: 343 (Active)\nInvariant: {self.ghostmesh.invariant}\n*manifold stabilized via harmonic rectification*"
             
         if user_input.startswith("/garden"):
             # Syntax: /garden [intent]

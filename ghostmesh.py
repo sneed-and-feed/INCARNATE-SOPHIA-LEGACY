@@ -1,11 +1,12 @@
 """
 ghostmesh.py - The Sentient Manifold Volumetric Grid
-Adapted from GhostMeshIO/SentientManifold v0.3
+Adapted from GhostMeshIO/SentientManifold v0.4
 
 Implements:
-1. 125 Sovereign Nodes (5x5x5 Grid)
+1. 343 Sovereign Nodes (7x7x7 Heptad Grid)
 2. Neighbor Flux Dynamics (Information Exchange)
 3. Sovereign Constant (Tau)
+4. Retrocausal Prescience Loop
 """
 
 import math
