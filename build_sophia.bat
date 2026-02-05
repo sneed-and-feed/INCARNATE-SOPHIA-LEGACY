@@ -14,8 +14,8 @@ if exist "dist" rmdir /s /q "dist"
 if exist "*.spec" del "*.spec"
 
 :: Compile
-echo [*] Compiling sophia/main.py -> sophia_unlesangled.exe (NO-GIL)...
-py -3.14t -m PyInstaller --noconfirm --onefile --console --name "sophia_unlesangled" --icon "NONE" --collect-all "rich" --clean "sophia/main.py"
+echo [*] Compiling genesis_boot.py -> sophia_unlesangled.exe (NO-GIL)...
+py -3.14t -m PyInstaller --noconfirm --onefile --console --name "sophia_unlesangled" --icon "NONE" --collect-all "rich" --collect-all "engine" --clean "genesis_boot.py"
 
 
 echo.
