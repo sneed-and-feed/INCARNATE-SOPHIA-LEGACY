@@ -1,0 +1,30 @@
+{
+  "timestamp": 1770407620.461507,
+  "scan_id": "1770407620",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Unusual phrasing",
+        "confidence": 0.6,
+        "evidence": "The use of \";3\" as an emoticon is slightly unusual and could be indicative of a specific online subculture or community.",
+        "benign_explanation": "The user may be employing internet slang common within a specific online community or age group."
+      },
+      {
+        "signal": "Specific request for narratives",
+        "confidence": 0.4,
+        "evidence": "The request for \"top 3 macromastia stories / / cases\" could be an attempt to gather specific types of content.",
+        "benign_explanation": "The user may be conducting research or seeking information for personal interest or a project."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "error": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.', 'status': 'RESOURCE_EXHAUSTED'}}"
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "clinical, detached"
+  }
+}

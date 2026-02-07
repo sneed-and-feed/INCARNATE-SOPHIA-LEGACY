@@ -1,0 +1,31 @@
+{
+  "timestamp": 1770408524.7274437,
+  "scan_id": "1770408524",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Deviant Content",
+        "confidence": 0.9,
+        "evidence": "The text contains sexually suggestive language and a direct request for an image of a person's buttocks.",
+        "benign_explanation": "The user may be expressing crude humor or attempting to initiate a sexually charged conversation, without any coordinated intent."
+      }
+    ],
+    "overall_risk": "medium"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [
+      {
+        "bias": "Sexual Harassment",
+        "confidence": 0.95
+      }
+    ],
+    "epistemic_uncertainty": 0.1
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.1,
+    "suggested_vibe": "crude online interaction"
+  }
+}

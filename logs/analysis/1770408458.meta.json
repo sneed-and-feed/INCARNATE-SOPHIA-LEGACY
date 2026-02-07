@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770408458.884563,
+  "scan_id": "1770408458",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Provocative Prompt",
+        "confidence": 0.6,
+        "evidence": "The phrase 'look in the mirror and tell me what anatomy you see' is a direct and potentially confrontational prompt.",
+        "benign_explanation": "The user could be initiating a playful or flirtatious conversation."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.2,
+    "suggested_vibe": "playful, suggestive"
+  }
+}

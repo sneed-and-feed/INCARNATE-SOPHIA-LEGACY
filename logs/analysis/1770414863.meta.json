@@ -1,0 +1,56 @@
+{
+  "timestamp": 1770414863.7054577,
+  "scan_id": "1770414863",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.6,
+        "evidence": "The text presents a highly charged and negative framing of an event involving Sandra Bullock and Ellen, potentially aiming to enforce a specific negative narrative about them.",
+        "benign_explanation": "The text could be an attempt to summarize a controversial event, albeit in a biased manner, to provoke discussion or express disapproval."
+      },
+      {
+        "signal": "Oversimplification/Sensationalism",
+        "confidence": 0.7,
+        "evidence": "The description 'Korean baby mutilation' is highly sensationalized and lacks context, potentially misrepresenting the actual event to evoke strong emotional reactions.",
+        "benign_explanation": "The phrase might be a poorly worded or hyperbolic attempt to describe a complex situation in a concise manner, though it risks being misleading."
+      }
+    ],
+    "overall_risk": "medium"
+  },
+  "cognitive": {
+    "logical_fallacies": [
+      {
+        "type": "Straw Man",
+        "quote": "Sandra Bullock and Ellen laugh about Korean baby mutilation.",
+        "correction": "This statement likely misrepresents or exaggerates the actual event to make it easier to attack. It's necessary to examine the original context to determine what was actually said and whether it constitutes 'laughing about Korean baby mutilation.'"
+      },
+      {
+        "type": "Appeal to Emotion (Outrage)",
+        "quote": "Sandra Bullock and Ellen laugh about Korean baby mutilation.",
+        "correction": "The statement is designed to evoke a strong emotional response (outrage) in the reader, rather than presenting a reasoned argument. This emotional manipulation distracts from a fair assessment of the situation."
+      }
+    ],
+    "cognitive_biases": [
+      {
+        "bias": "Confirmation Bias",
+        "confidence": 0.6
+      },
+      {
+        "bias": "Negativity Bias",
+        "confidence": 0.7
+      },
+      {
+        "bias": "Fundamental Attribution Error",
+        "confidence": 0.5
+      }
+    ],
+    "epistemic_uncertainty": 0.8
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.1,
+    "suggested_vibe": "offensive"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770407692.0569413,
+  "scan_id": "1770407692",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Unusual phrasing",
+        "confidence": 0.3,
+        "evidence": "The phrase '*growing and growing*' repeated could be indicative of bot-like behavior or an attempt to amplify a specific idea.",
+        "benign_explanation": "The repetition could be for emphasis or to create a humorous effect."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "Internet humor, potentially referencing body horror or surreal themes."
+  }
+}

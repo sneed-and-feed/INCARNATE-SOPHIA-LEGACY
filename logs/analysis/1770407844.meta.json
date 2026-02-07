@@ -1,0 +1,46 @@
+{
+  "timestamp": 1770407844.6714392,
+  "scan_id": "1770407844",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Sexual fetish content",
+        "confidence": 0.8,
+        "evidence": "The text describes a scenario focused on 'macromastia' and breeding, suggesting a sexual fetish.",
+        "benign_explanation": "The user could be exploring a hypothetical scenario related to physical traits and societal roles without malicious intent."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [
+      {
+        "type": "Appeal to Nature",
+        "quote": "what if she was in a rural village and happy",
+        "correction": "The assumption that being in a rural village inherently equates to happiness is flawed. Happiness is subjective and not guaranteed by environment."
+      },
+      {
+        "type": "Hasty Generalization",
+        "quote": "cared constantly for and bred to invoke more macromastia ;3 hereditary",
+        "correction": "Generalizing about the care and breeding practices based on a hypothetical scenario is a hasty generalization. It assumes a specific and potentially harmful practice is widespread or acceptable."
+      }
+    ],
+    "cognitive_biases": [
+      {
+        "bias": "Confirmation Bias",
+        "confidence": 0.4
+      },
+      {
+        "bias": "Availability Heuristic",
+        "confidence": 0.3
+      }
+    ],
+    "epistemic_uncertainty": 0.7
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.2,
+    "suggested_vibe": "internet_subculture"
+  }
+}

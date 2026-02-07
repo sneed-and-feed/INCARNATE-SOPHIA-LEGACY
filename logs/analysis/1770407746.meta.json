@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770407746.618862,
+  "scan_id": "1770407746",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "age_concern",
+        "confidence": 0.6,
+        "evidence": "The phrase 'really young' raises concerns about potential age-related issues.",
+        "benign_explanation": "The user could be expressing a hypothetical scenario without malicious intent, or simply engaging in playful banter."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "youthful, possibly flirtatious or mischievous"
+  }
+}

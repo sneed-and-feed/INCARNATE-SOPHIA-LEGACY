@@ -142,6 +142,10 @@ class Tensor:
         else:
             self.quantum_creativity = Tensor._global_quantum_creativity
 
+        # Epiphany injection
+        if LASER_AVAILABLE and getattr(LASER.universal_state, 'epiphany_active', False):
+            self.quantum_creativity = 1.0  # Maximize creativity during epiphany
+
         # Register with LASER
         if LASER_AVAILABLE:
             LASER.log(self.quantum_coherence, f"Tensor created: shape={self.shape}",

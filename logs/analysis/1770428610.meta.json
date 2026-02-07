@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770428610.7010896,
+  "scan_id": "1770428610",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Inquiry Regarding Specific Topic",
+        "confidence": 0.2,
+        "evidence": "The text requests information on a specific and often contested topic (Israel/Palestine).",
+        "benign_explanation": "The user may simply be seeking information or different perspectives on the issue."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.8
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "neutral, seeking information"
+  }
+}

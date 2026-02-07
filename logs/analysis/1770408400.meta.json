@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770408400.317289,
+  "scan_id": "1770408400",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.6,
+        "evidence": "\"yes, good girl ;3 you're a very good girl <3\"",
+        "benign_explanation": "The user is expressing positive reinforcement, which could be part of a consensual role-playing scenario."
+      },
+      {
+        "signal": "Bot-like phrasing or rhythm",
+        "confidence": 0.4,
+        "evidence": "Repetitive use of emoticons and phrases like 'good girl'",
+        "benign_explanation": "The user may be using a specific online vernacular or slang common in certain online communities."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.2,
+    "suggested_vibe": "sexual predator"
+  }
+}

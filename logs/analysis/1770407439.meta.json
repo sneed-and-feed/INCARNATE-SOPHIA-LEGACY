@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770407439.0290904,
+  "scan_id": "1770407439",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Sexual Content",
+        "confidence": 0.9,
+        "evidence": "The text explicitly discusses sexual acts ('make girls cum and queef').",
+        "benign_explanation": "The user may be seeking information about sexual health or relationships."
+      },
+      {
+        "signal": "Inquiry about sensitive topics",
+        "confidence": 0.6,
+        "evidence": "The user is asking for information about a potentially sensitive topic.",
+        "benign_explanation": "The user may be curious and seeking information."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.2,
+    "suggested_vibe": "explicit and inquisitive"
+  }
+}

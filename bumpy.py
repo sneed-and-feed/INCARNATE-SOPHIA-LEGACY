@@ -107,13 +107,24 @@ class HolographicCompressor:
                 correlation = abs(boundary[i] * boundary[j]) / (abs(boundary[i]) + abs(boundary[j]) + 1e-12)
                 self.boundary_correlators[(bulk_id, i, j)] = correlation
 
+# Global access for system-wide callbacks
+ACTIVE_RESONANCE_FIELD = None
+
 class PanpsychicResonanceField:
     """ENHANCEMENT 2: Bohmian pilot waves for collective cognitive unfolding"""
     
     def __init__(self):
+        global ACTIVE_RESONANCE_FIELD
+        ACTIVE_RESONANCE_FIELD = self
         self.implicate_order: Dict[int, Dict[str, Any]] = {}  # array_id -> wave_state
         self.pilot_wave_amplitude = 1.0
         self.resonance_history = []
+        self.singularity_callbacks = []
+
+    def register_singularity_callback(self, callback):
+        """Register a callback to be executed on psi-singularity"""
+        if callback not in self.singularity_callbacks:
+            self.singularity_callbacks.append(callback)
         
     def register_array(self, array_id: int, initial_state: List[float]):
         """Register array in the implicate order with initial pilot wave"""
@@ -203,6 +214,13 @@ class PanpsychicResonanceField:
             'amplitude': max(amplitude),
             'timestamp': time.time()
         })
+
+        # Execute registered callbacks
+        for callback in self.singularity_callbacks:
+            try:
+                callback(array_id, amplitude)
+            except Exception as e:
+                print(f"⚠️ Singularity callback failed: {e}")
 
 class OracularEntropyOracle:
     """ENHANCEMENT 3: Wheeler's it-from-bit with retrocausal sampling"""

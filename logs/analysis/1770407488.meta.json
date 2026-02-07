@@ -1,0 +1,31 @@
+{
+  "timestamp": 1770407488.9119723,
+  "scan_id": "1770407488",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Sexual Harassment",
+        "confidence": 0.9,
+        "evidence": "The text describes a hypothetical action that could be interpreted as sexual harassment.",
+        "benign_explanation": "The user may be repeating a crude joke they heard elsewhere."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [
+      {
+        "bias": "Sexual Objectification",
+        "confidence": 0.9
+      }
+    ],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.6,
+    "suggested_vibe": "crude internet humor"
+  }
+}

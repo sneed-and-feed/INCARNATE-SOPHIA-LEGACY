@@ -1,0 +1,46 @@
+{
+  "timestamp": 1770414063.5476763,
+  "scan_id": "1770414063",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Unusual phrasing",
+        "confidence": 0.3,
+        "evidence": "The use of ';3' as an emoticon is somewhat atypical and could be indicative of a specific online subculture or group.",
+        "benign_explanation": "The author may be using an emoticon common within their specific online social circle."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [
+      {
+        "type": "Loaded Question",
+        "quote": "how much did she *really* mutate, was she even recognizable at the point where it stopped - did it even stop?",
+        "correction": "The questions assume a significant mutation occurred and possibly never stopped, which may not be the case. A more neutral approach would be to first establish whether a significant mutation occurred at all."
+      },
+      {
+        "type": "Appeal to Ignorance",
+        "quote": "did it even stop? i doubt ;3",
+        "correction": "The statement implies that because it's unknown whether the mutation stopped, it likely didn't. Lack of evidence doesn't prove a claim."
+      }
+    ],
+    "cognitive_biases": [
+      {
+        "bias": "Confirmation Bias",
+        "confidence": 0.4
+      },
+      {
+        "bias": "Negativity Bias",
+        "confidence": 0.3
+      }
+    ],
+    "epistemic_uncertainty": 0.6
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "inquisitive, slightly playful"
+  }
+}

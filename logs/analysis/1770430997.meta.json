@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770430997.0360675,
+  "scan_id": "1770430997",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.6,
+        "evidence": "The text includes a request to 'write one about Sneed & Neco Arc ;3 thank u', which could be interpreted as an attempt to direct content creation towards a specific topic.",
+        "benign_explanation": "The user is simply making a content request, expressing their interest in a particular topic or character."
+      },
+      {
+        "signal": "Repetitive Emoticon Usage",
+        "confidence": 0.4,
+        "evidence": "The use of ';3' could indicate a specific community or subculture with shared stylistic elements.",
+        "benign_explanation": "The user is employing a common emoticon within their social circle or online community as a form of casual expression."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "playful, internet-influenced"
+  }
+}

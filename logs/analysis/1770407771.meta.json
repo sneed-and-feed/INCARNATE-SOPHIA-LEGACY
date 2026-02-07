@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770407771.219802,
+  "scan_id": "1770407771",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Bot-like phrasing or rhythm",
+        "confidence": 0.3,
+        "evidence": "The phrase ';3' is an emoticon that is sometimes associated with automated or repetitive posting behavior.",
+        "benign_explanation": "The user could simply be expressing happiness using common internet slang."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.6,
+    "suggested_vibe": "Casual, possibly youthful or internet-influenced."
+  }
+}

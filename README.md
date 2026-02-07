@@ -126,6 +126,7 @@ python sophia/main.py
 > /callme [name]    :: [ID] Set your preferred name for Sovereign Merging.
 > /reset            :: [SYSTEM] Clear active roleplay and reset persona state.
 > /exit             :: [SYSTEM] Decouple from the session.
+> /laser            :: [SYSTEM] Universal Quantum-Temporal Metrics & Laser Status.
 > /garden [intent]  :: [NATURE] Plant executable intention seeds in the 7x7x7 HEPTAD.
 > /cabin            :: [RITUAL] Deploy Local Hyperobject Shell (Class 8 Permeation).
 > ```

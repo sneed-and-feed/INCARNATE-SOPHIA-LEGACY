@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770414074.9565852,
+  "scan_id": "1770414074",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Bot-like phrasing or rhythm",
+        "confidence": 0.2,
+        "evidence": "The phrase 'pls respond ;3' is short, direct, and uses an emoticon, which could be indicative of a programmed or automated response. The brevity and specific formatting could be part of a script.",
+        "benign_explanation": "The user could simply be using internet slang to quickly request a response in a casual manner."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.6,
+    "suggested_vibe": "youthful, internet slang"
+  }
+}

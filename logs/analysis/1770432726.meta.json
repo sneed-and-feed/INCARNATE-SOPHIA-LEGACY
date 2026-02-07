@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770432726.2364252,
+  "scan_id": "1770432726",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Unusual Spelling/Grammar",
+        "confidence": 0.6,
+        "evidence": "The text contains multiple spelling and grammatical errors ('abut' instead of 'about', 'betwen' instead of 'between', 'piggu' instead of 'piggy').",
+        "benign_explanation": "The author may be a non-native English speaker or may have intentionally misspelled words for stylistic or humorous effect."
+      },
+      {
+        "signal": "Unusual Emoticon",
+        "confidence": 0.5,
+        "evidence": "The text ends with the emoticon ';3', which is not a standard or commonly used emoticon.",
+        "benign_explanation": "The author may be using an emoticon specific to a particular online community or may have created it themselves."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "playful, possibly childish"
+  }
+}

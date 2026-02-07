@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770430290.2679763,
+  "scan_id": "1770430290",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Unusual phrasing",
+        "confidence": 0.6,
+        "evidence": "Use of '*headpats 4u*' and ';3' is atypical for general discussion and may indicate a specific community or subculture.",
+        "benign_explanation": "The user may be employing internet slang common within a particular online community as a form of self-identification or humor."
+      },
+      {
+        "signal": "Specific request format",
+        "confidence": 0.5,
+        "evidence": "The request for 'greentext plz' suggests a familiarity with and preference for a specific format common on certain online platforms.",
+        "benign_explanation": "The user may simply be requesting a specific format for responses that they find easier to read or that is traditional on their platform of choice."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.6,
+    "suggested_vibe": "Internet/meme culture, possibly anime/gaming influenced"
+  }
+}

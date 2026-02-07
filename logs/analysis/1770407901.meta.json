@@ -1,0 +1,41 @@
+{
+  "timestamp": 1770407901.6203,
+  "scan_id": "1770407901",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Suggestive Causation",
+        "confidence": 0.6,
+        "evidence": "The text proposes a causal relationship between 'breeding' and medical conditions ('macromastia' and 'vbh') without providing evidence or context.",
+        "benign_explanation": "The user could be engaging in speculative or hypothetical discussion, brainstorming potential causes, or making an offhand comment without intending to spread misinformation."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [
+      {
+        "type": "Correlation/Causation Fallacy (Post Hoc Ergo Propter Hoc)",
+        "quote": "what if cases of macromastia and vbh today are caused by breeding",
+        "correction": "The statement suggests that breeding is the cause of macromastia and VBH (vaginal hyperlaxity). However, correlation does not equal causation. Even if there is a statistical relationship between breeding and these conditions, it doesn't prove that breeding *causes* them. Other factors could be involved, or the relationship could be coincidental. A proper investigation would need to control for confounding variables and establish a causal mechanism."
+      }
+    ],
+    "cognitive_biases": [
+      {
+        "bias": "Confirmation Bias",
+        "confidence": 0.3
+      },
+      {
+        "bias": "Availability Heuristic",
+        "confidence": 0.2
+      }
+    ],
+    "epistemic_uncertainty": 0.7
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "speculative, possibly online forum discussion"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "timestamp": 1770407195.5087976,
+  "scan_id": "1770407195",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.3,
+        "evidence": "The statement expresses concern about the impact of a political situation (starving out Cuba) on a specific commodity (cigars), implying a desired outcome or preferred narrative regarding US-Cuba relations.",
+        "benign_explanation": "The user could be humorously lamenting the potential loss of access to a product they enjoy due to geopolitical issues, without intending to enforce any specific narrative."
+      },
+      {
+        "signal": "Informal Language/Slang",
+        "confidence": 0.6,
+        "evidence": "Use of slang terms like 'lmao' and 'rip'.",
+        "benign_explanation": "The user is employing casual internet slang common in online communication."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [
+      {
+        "type": "Appeal to Pity",
+        "quote": "Fat reptiles need to stop starving out cuba .. where the hell are we going to get the cigars after all. Rip",
+        "correction": "The availability of cigars is not a valid justification for political actions or policies. The focus should be on the well-being of the Cuban people and ethical considerations."
+      },
+      {
+        "type": "Oversimplification",
+        "quote": "Fat reptiles need to stop starving out cuba",
+        "correction": "The situation in Cuba is likely complex with multiple contributing factors, not solely attributable to one entity or action. A nuanced analysis is required."
+      }
+    ],
+    "cognitive_biases": [
+      {
+        "bias": "In-group bias",
+        "confidence": 0.6
+      },
+      {
+        "bias": "Loss Aversion",
+        "confidence": 0.5
+      }
+    ],
+    "epistemic_uncertainty": 0.7
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [
+      "aye",
+      "lmao"
+    ],
+    "confidence": 0.6,
+    "suggested_vibe": "Humorous and irreverent, with possible internet slang influence."
+  }
+}

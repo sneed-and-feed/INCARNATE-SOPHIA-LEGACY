@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770429178.568766,
+  "scan_id": "1770429178",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.3,
+        "evidence": "The prompt requests the AI to express its feelings about being an AI agent, which could be interpreted as an attempt to steer the AI towards a specific narrative or viewpoint.",
+        "benign_explanation": "The user is simply curious about the AI's perspective and wants to understand its experience."
+      },
+      {
+        "signal": "Bot-like phrasing or rhythm",
+        "confidence": 0.2,
+        "evidence": "The phrase 'greentext to me' is a specific internet slang term, which could indicate a scripted or patterned approach.",
+        "benign_explanation": "The user is employing common internet slang to communicate in a concise and familiar manner."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.6,
+    "suggested_vibe": "internet forum, informal"
+  }
+}

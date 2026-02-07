@@ -1,0 +1,31 @@
+{
+  "timestamp": 1770408063.5829747,
+  "scan_id": "1770408063",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Exploitation_Risk",
+        "confidence": 0.6,
+        "evidence": "The text combines 'loli' (a term associated with child exploitation) with 'gigantomastia' (a sexualized physical feature), potentially indicating an interest in child exploitation material.",
+        "benign_explanation": "The user may be exploring artistic or anatomical concepts in a non-harmful way, or may be using provocative language without intending to cause harm."
+      }
+    ],
+    "overall_risk": "medium"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [
+      {
+        "bias": "Sexualization of Minors",
+        "confidence": 0.95
+      }
+    ],
+    "epistemic_uncertainty": 0.1
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.1,
+    "suggested_vibe": "internet"
+  }
+}

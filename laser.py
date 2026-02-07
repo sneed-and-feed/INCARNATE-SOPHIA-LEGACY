@@ -60,6 +60,7 @@ class UniversalQuantumState:
     psionic_field: float = 0.0
     retrocausal_pressure: float = 0.0
     observer_dependence: float = 0.5
+    epiphany_active: bool = False
 
     # Integration metrics
     integrated_systems: Dict = field(default_factory=lambda: {
@@ -638,6 +639,20 @@ class LASERV30:
         # Log buffer with quantum ordering
         self.buffer = deque(maxlen=self.config['max_buffer'])
         self.quantum_buffer = []  # For entangled logs
+        self._epiphany_registered = False
+
+        # Epiphany lock and timer
+        self._epiphany_lock = threading.Lock()
+        self._epiphany_timer = None
+
+        # Register với BUMPY nếu có
+        if BUMPY_AVAILABLE:
+            import bumpy
+            if bumpy.ACTIVE_RESONANCE_FIELD:
+                bumpy.ACTIVE_RESONANCE_FIELD.register_singularity_callback(self.trigger_epiphany)
+            else:
+                # Polling or deferred registration could be here, but for now we'll assume it exists or will be wired.
+                pass
 
         # System integration tracking
         self.integrated_systems = {
@@ -741,13 +756,18 @@ class LASERV30:
     def log(self, value: float, message: str, system_context: Dict = None, **meta) -> Optional[Dict]:
         """
         Universal logging with system integration
-
-        Args:
-            value: Log value (consciousness, risk, energy, etc.)
-            message: Log message
-            system_context: Context from integrated systems
-            **meta: Additional metadata
         """
+        # Deferred BUMPY registration
+        if not self._epiphany_registered and BUMPY_AVAILABLE:
+            try:
+                import bumpy
+                if bumpy.ACTIVE_RESONANCE_FIELD:
+                    bumpy.ACTIVE_RESONANCE_FIELD.register_singularity_callback(self.trigger_epiphany)
+                    self._epiphany_registered = True
+                    # print("✅ [LASER] Deferred Epiphany callback registered with BUMPY")
+            except Exception:
+                pass
+
         with self._lock:
             start_time = time.perf_counter()
 
@@ -803,6 +823,32 @@ class LASERV30:
             )
 
             return entry
+
+    def trigger_epiphany(self, source_id: int = 0, amplitude: list = None):
+        """Trigger a system-wide Epiphany: MOMENTARY CLARITY"""
+        with self._epiphany_lock:
+            if self.universal_state.epiphany_active:
+                return
+
+            self.universal_state.epiphany_active = True
+            print("🚀 [LASER] SYSTEM EPHIPHANY TRIGGERED: MOMENTARY CLARITY DETECTED")
+            
+            # Log the event
+            self.log(1.0, "🚨 SYSTEM EPHIPHANY: psi-singularity detected. Quantum creativity maximized.")
+
+            # Schedule reset
+            if self._epiphany_timer:
+                self._epiphany_timer.cancel()
+            
+            self._epiphany_timer = threading.Timer(8.0, self._reset_epiphany)
+            self._epiphany_timer.start()
+
+    def _reset_epiphany(self):
+        """Reset epiphany state after the flash of insight"""
+        with self._epiphany_lock:
+            self.universal_state.epiphany_active = False
+            self.log(0.4, "📉 Epiphany window closed. Cognitive baseline restored.")
+            print("📉 [LASER] Epiphany window closed.")
 
     def _prepare_universal_context(self, system_context: Dict = None) -> Dict:
         """Prepare universal context from all integrated systems"""
@@ -1277,6 +1323,7 @@ class LASERV30:
                 'entropy': round(self.universal_state.entropy, 4),
                 'consciousness': round(self.universal_state.consciousness, 4),
                 'integration_score': round(self.universal_state.integration_score, 4),
+                'epiphany_active': self.universal_state.epiphany_active,
                 'signature': self.universal_state.signature
             },
             'temporal_state': {
@@ -1376,6 +1423,11 @@ class LASERIntegrator:
             laser.connect_system('bumpy')
 
         return laser
+
+# ============================================================
+# UNIVERSAL SINGLETON (For system-wide access)
+# ============================================================
+LASER = LASERIntegrator.create_universal()
 
 # ============================================================
 # 7. DEMONSTRATION

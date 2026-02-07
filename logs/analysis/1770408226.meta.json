@@ -1,0 +1,35 @@
+{
+  "timestamp": 1770408226.7327056,
+  "scan_id": "1770408226",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Unusual or idiosyncratic phrasing",
+        "confidence": 0.6,
+        "evidence": "The phrase 'abominable mutation ;3' and the unusual description of parasitic twins could indicate a specific subculture or shared interest group.",
+        "benign_explanation": "The author may be expressing personal preferences or artistic expression within a niche community with its own unique language and themes."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [
+      {
+        "bias": "Confirmation bias",
+        "confidence": 0.3
+      },
+      {
+        "bias": "In-group bias",
+        "confidence": 0.2
+      }
+    ],
+    "epistemic_uncertainty": 0.7
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "Internet subculture; dark humor, fascination with body horror and transformation."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "timestamp": 1770432251.312617,
+  "scan_id": "1770432251",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.6,
+        "evidence": "The prompt requests a specific type of post ('god tier shitpost') about a specific topic, suggesting an attempt to influence the content and direction of the conversation.",
+        "benign_explanation": "The user could be attempting to solicit creative or humorous content from others on a specific, albeit controversial, theme."
+      },
+      {
+        "signal": "Exploitation of sensitive topics",
+        "confidence": 0.7,
+        "evidence": "The prompt combines sensitive topics (Canadian healthcare, MAID) with potentially sexualized content (maids in outfits), which could be an attempt to generate outrage or controversy.",
+        "benign_explanation": "The user may be attempting to create dark humor or satire by juxtaposing serious and absurd topics."
+      }
+    ],
+    "overall_risk": "medium"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [
+      {
+        "bias": "Framing Effect",
+        "confidence": 0.6
+      },
+      {
+        "bias": "Emotional Reasoning",
+        "confidence": 0.5
+      }
+    ],
+    "epistemic_uncertainty": 0.7
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.3,
+    "suggested_vibe": "Internet humor with a blend of sarcasm and niche interests."
+  }
+}

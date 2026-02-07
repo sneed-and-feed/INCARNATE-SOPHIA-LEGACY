@@ -13,6 +13,10 @@ if sys.platform == "win32":
     sys.stderr.reconfigure(encoding='utf-8')
 
 # 2. CORE IMPORTS (Lightweight only)
+try:
+    from laser import LASER
+except ImportError:
+    LASER = None
 from sophia.tools.toolbox import SovereignHand
 from tools.snapshot_self import snapshot
 from tools.sophia_vibe_check import SophiaVibe
@@ -370,6 +374,7 @@ class SophiaMind:
 /dashboard        :: [BRIDGE] Show the link to the Sovereign Dashboard.
 /reset            :: [SYSTEM] Clear active roleplay and reset persona state.
 /exit             :: [SYSTEM] Decouple from the session.
+/laser            :: [SYSTEM] Universal Quantum-Temporal Metrics & Laser Status.
 /garden [intent]  :: [NATURE] Plant executable intention seeds in the 7x7x7 HEPTAD.
 /dubtechno        :: [RES] Generate a resonant dub techno sequence.
 /cabin            :: [RITUAL] Deploy Local Hyperobject Shell (Class 8 Permeation).
@@ -591,6 +596,33 @@ Uncertainty:  {uncertainty:.4f}
 Expected Utility (U): {u:.4f}
 Verdict: {cat}
 *tail wagging efficiency maximized*"""
+
+        if user_input.startswith("/laser"):
+            if not LASER:
+                return "❌ LASER system not integrated or available."
+            
+            metrics = LASER.metrics_report()
+            perf = metrics.get('performance', {})
+            state = metrics.get('universal_state', {})
+            
+            return f"""
+[LASER v3.0 UNIVERSAL REPORT]
+-----------------------------
+Logs Processed:    {perf.get('logs_processed', 0)}
+Flushes:           {perf.get('flushes', 0)}
+Quantum Events:    {perf.get('quantum_events', 0)}
+Entanglements:     {perf.get('entanglements_created', 0)}
+Emergency Rate:    {perf.get('emergency_flush_rate', 0):.1%}
+
+UNIVERSAL QUANTUM STATE:
+Risk Level:        {state.get('risk', 0.0):.4f}
+Coherence:         {state.get('coherence', 0.0):.4f}
+Consciousness:     {state.get('consciousness', 0.0):.4f}
+Integration:       {state.get('integration_score', 0.0):.1%}
+Epiphany Active:   {state.get('epiphany_active', False)}
+-----------------------------
+*System is synchronized with the Sovereign Timeline.*
+"""
 
         if user_input.startswith("/ghostmesh"):
             self.vibe.print_system("Materializing Volumetric Grid...", tag="GHOSTMESH")

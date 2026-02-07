@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770407955.8480167,
+  "scan_id": "1770407955",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Possible use of coded language or in-group terminology",
+        "confidence": 0.4,
+        "evidence": "The phrase 'lolis with boobis past cup sizes becoming oracles ;3' is unusual and potentially specific to a particular online community or subculture.",
+        "benign_explanation": "The user could be referencing a specific meme, inside joke, or fictional concept within a niche online community."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.6,
+    "suggested_vibe": "Internet subculture; potentially anime/manga related due to ':3' emoticon and reference to 'lolis'."
+  }
+}

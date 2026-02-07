@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770429144.2286725,
+  "scan_id": "1770429144",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Unusual phrasing/emoticons",
+        "confidence": 0.6,
+        "evidence": "Use of 'OwO', ';3', and all caps 'INDEED' is atypical.",
+        "benign_explanation": "The user may be role-playing or using internet slang common in certain online communities."
+      },
+      {
+        "signal": "Potential In-group reference",
+        "confidence": 0.4,
+        "evidence": "Questioning 'HOW DO YOU FEEL ABOUT BEING AN AGENT' suggests a shared context or role.",
+        "benign_explanation": "The users could be participating in a game, collaborative fiction, or other activity where 'agent' has a specific meaning."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.2,
+    "suggested_vibe": "internet_slang"
+  }
+}

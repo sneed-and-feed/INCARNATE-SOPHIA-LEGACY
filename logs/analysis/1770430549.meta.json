@@ -1,0 +1,32 @@
+{
+  "timestamp": 1770430549.3155055,
+  "scan_id": "1770430549",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.6,
+        "evidence": "\"let's greentext our butts off\"",
+        "benign_explanation": "This could be playful encouragement to participate in an online discussion using a specific format (greentexting)."
+      },
+      {
+        "signal": "Coordinated Behavior",
+        "confidence": 0.5,
+        "evidence": "\"let's greentext\"",
+        "benign_explanation": "This phrase could simply be an invitation to a group of friends to engage in a shared activity online."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.6,
+    "suggested_vibe": "Internet forum culture, potentially with a focus on fringe topics."
+  }
+}
