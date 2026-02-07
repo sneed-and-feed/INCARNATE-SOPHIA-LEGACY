@@ -76,6 +76,7 @@ class SophiaMind:
         self.MAX_MEMORY_DEPTH = 5 # Tactical 4k context limit
         self.interaction_cycles = 0 # Count for Rituals (42)
         self.user_name = "User" # Default Identity
+        self.U_THRESHOLD = 0.4 # [ASOE] Sovereign Early Exit
         
         # [ARIADNE THREAD] Restore lightweight past
         self._load_ariadne_thread()
@@ -313,6 +314,18 @@ class SophiaMind:
             output = []
             
             for turn in range(5):
+                # SOVEREIGN EARLY EXIT: Evaluate Utility (U) before turn
+                telemetry = self.pleroma.run_telemetry_cycle()
+                u = self.optimizer.calculate_utility(
+                    reliability=telemetry['coherence'],
+                    consistency=1.0, # Maintenance is consistent by default
+                    uncertainty=0.1,
+                    sovereign_boost=self.pleroma.monitor.get_asoe_boost()
+                )
+                if u < self.U_THRESHOLD:
+                    self.vibe.print_system(f"Sovereign Early Exit (U={u:.4f} < {self.U_THRESHOLD})", tag="ASOE")
+                    break
+
                 response = await self.llm.generate_contents(contents, sys_prompt, tools)
                 if not response or not response.candidates: 
                     output.append("❌ Connection collapsed.")
@@ -828,6 +841,17 @@ Verdict: {cat}
         
         try:
             for turn in range(5):
+                # SOVEREIGN EARLY EXIT: Evaluate Utility (U) before turn
+                u = self.optimizer.calculate_utility(
+                    reliability=curr_coherence,
+                    consistency=1.0,
+                    uncertainty=0.1,
+                    sovereign_boost=boost
+                )
+                if u < self.U_THRESHOLD:
+                    self.vibe.print_system(f"Sovereign Early Exit (U={u:.4f} < {self.U_THRESHOLD})", tag="ASOE")
+                    break
+
                 # Use generate_contents for tool support
                 response = await self.llm.generate_contents(contents, sys_prompt, tools if not raw_mode else None)
                 

@@ -1,0 +1,54 @@
+{
+  "timestamp": 1770463210.5325358,
+  "scan_id": "1770463210",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.2,
+        "evidence": "\"Fix the system\" implies a shared understanding of a flawed system and a call for collective action, potentially pressuring individuals to agree with this assessment.",
+        "benign_explanation": "The phrase could simply reflect a genuine desire for improvement in a system perceived as broken, without any coordinated effort to enforce a specific narrative."
+      },
+      {
+        "signal": "Bot-like phrasing or rhythm",
+        "confidence": 0.3,
+        "evidence": "The phrase \"Fix the system\" is short, direct, and lacks nuance, which is characteristic of automated or highly coordinated messaging.",
+        "benign_explanation": "The brevity and directness could be due to a desire for clarity and conciseness, or simply a reflection of common parlance."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [
+      {
+        "type": "Vagueness",
+        "quote": "Fix the system",
+        "correction": "The statement lacks specificity. What system needs fixing? What constitutes 'fixing' it? To address this, one needs to define the system in question and the desired outcome of the 'fix'."
+      },
+      {
+        "type": "Appeal to Emotion (potentially)",
+        "quote": "Fix the system",
+        "correction": "Depending on the context, this could be an appeal to emotion, implying that the current system is causing negative feelings. To avoid this, provide objective reasons why the system needs fixing, supported by evidence."
+      }
+    ],
+    "cognitive_biases": [
+      {
+        "bias": "Availability Heuristic (potentially)",
+        "confidence": 0.4,
+        "explanation": "If the speaker recently experienced a problem with a system, they might overestimate the need for a fix based on that readily available experience."
+      },
+      {
+        "bias": "Confirmation Bias (potentially)",
+        "confidence": 0.3,
+        "explanation": "The speaker might be selectively noticing and emphasizing flaws in the system that confirm their pre-existing belief that it needs fixing."
+      }
+    ],
+    "epistemic_uncertainty": 0.7
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.1,
+    "suggested_vibe": "neutral"
+  }
+}

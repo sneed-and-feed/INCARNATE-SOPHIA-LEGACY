@@ -1,0 +1,38 @@
+{
+  "timestamp": 1770463233.0071712,
+  "scan_id": "1770463233",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Narrative Enforcement",
+        "confidence": 0.1,
+        "evidence": "The text 'Hello Sophia' in isolation does not suggest narrative enforcement. There is no visible pressure to conform to any particular viewpoint or behavior.",
+        "benign_explanation": "This is a simple greeting, and the lack of context makes it difficult to infer any manipulative intent."
+      },
+      {
+        "signal": "Astroturfing",
+        "confidence": 0.1,
+        "evidence": "The text 'Hello Sophia' does not contain any elements indicative of fake grassroots support. There is no promotion of a product, service, or idea.",
+        "benign_explanation": "This appears to be a personal greeting, and there is no indication of any broader campaign or coordinated effort."
+      },
+      {
+        "signal": "Bot-like phrasing or rhythm",
+        "confidence": 0.2,
+        "evidence": "The text 'Hello Sophia' is a simple and common greeting. While it is short, it does not exhibit unusual phrasing or rhythm that would suggest automated generation.",
+        "benign_explanation": "This is a standard greeting that could easily be written by a human."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.1,
+    "suggested_vibe": "neutral greeting"
+  }
+}

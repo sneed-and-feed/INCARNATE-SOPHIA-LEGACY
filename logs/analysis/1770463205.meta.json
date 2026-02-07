@@ -1,0 +1,26 @@
+{
+  "timestamp": 1770463205.635161,
+  "scan_id": "1770463205",
+  "safety": {
+    "safety_flags": [
+      {
+        "signal": "Bot-like phrasing or rhythm",
+        "confidence": 0.2,
+        "evidence": "The text consists of a simple greeting, which is a common pattern in automated systems or basic communication scripts.",
+        "benign_explanation": "The message could be a simple, direct greeting from someone with limited communication skills or someone trying to be concise."
+      }
+    ],
+    "overall_risk": "low"
+  },
+  "cognitive": {
+    "logical_fallacies": [],
+    "cognitive_biases": [],
+    "epistemic_uncertainty": 0.9
+  },
+  "localization": {
+    "locality": "agnostic",
+    "dialect_markers": [],
+    "confidence": 0.1,
+    "suggested_vibe": "neutral greeting"
+  }
+}
