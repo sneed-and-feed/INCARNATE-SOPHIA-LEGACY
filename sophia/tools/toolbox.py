@@ -221,20 +221,19 @@ class SovereignHand:
         import sys
         try:
             try:
-                from duckduckgo_search import DDGS
+                from ddgs import DDGS
             except ImportError as e1:
                 try:
-                    from ddgs import DDGS
+                    from duckduckgo_search import DDGS
                 except ImportError as e2:
                     frozen = getattr(sys, 'frozen', False)
                     meipass = getattr(sys, '_MEIPASS', 'N/A')
                     exe = sys.executable
                     return (f"❌ Sovereign Search Bundle Error:\n"
-                            f"1. 'duckduckgo_search' import error: {e1}\n"
-                            f"2. 'ddgs' import error: {e2}\n"
+                            f"1. 'ddgs' import error: {e1}\n"
+                            f"2. 'duckduckgo_search' import error: {e2}\n"
                             f"Frozen: {frozen} | MEIPASS: {meipass}\n"
-                            f"Executable: {exe}\n"
-                            f"Path Snippet: {sys.path[:5]}")
+                            f"Executable: {exe}")
         except Exception as e:
             return f"❌ Sovereign Search Logic Error: {e}"
         
